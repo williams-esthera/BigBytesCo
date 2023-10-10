@@ -1,0 +1,111 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Variables */
+:root {
+    --background-button-color: rgb(118, 221, 98);
+}
+
+/* Background */
+#homepage-background {
+    /* Image quality is poor for some reason, can't find a fix for it */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('./images/homepageBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    transform: scaleY(-1);
+    z-index: -1;
+}
+
+/* Homepage containers */
+#container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Homepage login */
+.login {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    
+    margin-top: 20px;
+    margin-right: 25px;
+}
+
+.login > button {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+
+    background-color: var(--background-button-color);
+
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(119, 20, 20, 0.712);
+}
+
+.login > button > img {
+    width: 100%;
+}
+
+/* Homepage holder */
+.homepage-holder {
+    margin-bottom: 50px;
+}
+
+/* Title */
+.homepage-holder > div:nth-child(1) {
+    font-size: 120px;
+    margin-bottom: 50px;
+}
+
+/* Buttons */
+.homepage-holder > div:nth-child(2) {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.homepage-holder > div:nth-child(2) button {
+    background-color: var(--background-button-color);
+    font-size: 30px;
+    padding: 12px;
+    cursor: pointer;
+    
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+/* Homepage footer */
+.homepage-footer {
+    margin-bottom: 50px;
+
+    font-size: 30px;
+}
+
+/* Misc */
+.homepage-holder > div:nth-child(1), .homepage-holder > div:nth-child(2) div, .homepage-footer {
+    font-style: italic;
+    color: rgba(97, 17, 17, 0.712);
+}
