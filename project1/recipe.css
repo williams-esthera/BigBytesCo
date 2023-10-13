@@ -1,4 +1,8 @@
 
+:root {
+    --recipe-book-scale: 1.65;
+}
+
 /* Triangle */
 .triangle {
     width: 100%;
@@ -30,27 +34,95 @@
 
 /* Recipe book */
 .recipe-book {
-    background-image: url('./images/recipe_bookv2.PNG');
+    /* background-image: url('./images/recipe_bookv2.PNG'); */
+    background-image: url('./recipeBookAnimation/cookbook\ \(2\).jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
-    min-height: 636px;
-    width: 940px;
+    width: calc(600px * var(--recipe-book-scale));
+    height: calc(336px * var(--recipe-book-scale));
+
     margin-top: 100px;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+
 }
 
 .recipe-title {
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .left-page {
-    
+    padding-left: 200px;
+}
+
+.right-page {
+    padding-right: 200px;
 }
 
 .recipe-top {
     display: flex;
+}
+
+.recipe-title {
+    font-size: 20px;
+    max-width: 200px;
+}
+
+/* Recipe image */
+.recipe-image {
+    background-color: transparent;
+	width: 250px;
+	border: 1px ;
+	perspective: 1000px;
+	position: absolute;
+    margin-top: 12px;
+}
+
+.recipe-image > div {
+    width: 230px;
+    height: 175px;
+}
+
+.front > img {
+    width: 100%;
+    height: 100%;
+}
+
+.flipin {
+    position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.recipe-image:hover .flipin {
+	transform: rotateY(180deg);
+}
+
+.front, .back{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.front{
+	background-color: #bbb;
+	color: black;
+}
+
+.back{
+	/* background-color: dodgerblue; */
+	color: black;
+	transform: rotateY(180deg);
+}
+
+/* Steps */
+.recipe-steps {
+    margin-top: 192px;
 }
