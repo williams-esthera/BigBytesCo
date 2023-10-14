@@ -10,8 +10,12 @@
     display: flex;
     justify-content: center;
 
-    z-index: -3;
+    z-index: 2;
     position: relative;
+
+    animation: arrowDown 1.5s infinite normal;
+    
+   
 }
 
 .triangle > img {
@@ -19,29 +23,44 @@
     bottom: -60px;
 }
 
+
+@keyframes arrowDown {
+   from{
+        top: 0px;
+    }
+    to{
+        top:30px
+      } 
+
+}
+
 /* Recipe container */
 #recipe-container {
     position: relative;
     width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    background-color: rgb(221, 245, 237);
+    background-image: url("./image/defaultBackground");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FEFDFB;
+
     z-index: -4;
 }
 
 /* Recipe book */
 .recipe-book {
     /* background-image: url('./images/recipe_bookv2.PNG'); */
-    background-image: url('./recipeBookAnimation/cookbook\ \(2\).jpg');
+    background-image: url('./recipeBookAnimation/cookbook.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
-    width: calc(600px * var(--recipe-book-scale));
-    height: calc(336px * var(--recipe-book-scale));
+    width: calc(930px * var(--recipe-book-scale)); /* 600*/
+    height: calc(560px * var(--recipe-book-scale)); /*336*/
 
     margin-top: 100px;
 
@@ -55,11 +74,11 @@
 }
 
 .left-page {
-    padding-left: 200px;
+    padding-left: 275px; /*200*/
 }
 
 .right-page {
-    padding-right: 200px;
+    padding-right: 275px;
 }
 
 .recipe-top {
@@ -67,8 +86,9 @@
 }
 
 .recipe-title {
-    font-size: 20px;
+    font-size: 28px;
     max-width: 200px;
+    white-space: nowrap;
 }
 
 /* Recipe image */
@@ -106,23 +126,67 @@
 
 .front, .back{
 	position: absolute;
-	width: 100%;
+	color: black;
+    width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 }
 
 .front{
 	background-color: #bbb;
-	color: black;
+	
 }
 
 .back{
 	/* background-color: dodgerblue; */
 	color: black;
 	transform: rotateY(180deg);
+    text-align: left;
+    
 }
 
 /* Steps */
 .recipe-steps {
-    margin-top: 192px;
+    margin-top: 215px; /*192*/
+    width: 400px;
+}
+
+#brownie-steps{
+    margin-top: 245px;
+}
+
+.stepsTitle{
+ 
+}
+
+.addToCartButton{
+	height:50px;
+	width:50px;
+	position: relative;
+	display: inline-block;
+	margin: 0px;
+	
+}
+
+.addToCartButton .img-clicked {
+	display: none;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 99;
+}
+
+.addToCartButton:hover .img-clicked{
+	display: inline;
+}
+
+
+.addToCartButton img{
+	height:50px;
+	width:50px;
+    float:right;
+}
+
+ul{
+    list-style: none
 }
