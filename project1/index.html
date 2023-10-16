@@ -4,17 +4,21 @@
         <title>Recipe</title>
         <link rel="stylesheet" href="./homepage.css">
         <link rel="stylesheet" href="./recipe.css">
+        <link rel="stylesheet" href="./nutrition.css">
     </head>
-    <body>
+    <body id = "homeBody">
         <!-- Homepage -->
         <div id="homepage-background"></div>
         
         <div id="homepage-container">
-            <div class="login">
-                <button>
-                    <img src="./images/login.png">
-                </button>
-            </div>
+             <div class="login" >
+                <div id ="profile">
+                    <img id = "icon" src="./images/login.png">
+                    <p id="welcome">Welcome, <span id="username">Username</span></p>
+                </div>
+            </div>  
+               
+            
 
             <div class="homepage-holder">
                 <div class="homepage-title">
@@ -28,9 +32,9 @@
                     <div>e</div>
                 </div>
                 <div class="main-buttons">
-                    <button class="main-button">Recipes</button>
-                    <button class="main-button">Nutrition</button>
-                    <button class="main-button test">Shopping</button>
+                    <a href="./index.html"><button class="main-button">Recipes</button></a>
+                    <a href="./nutrition.html"><button class="main-button">Nutrition</button></a>
+                    <a href="./shopping.html"><button class="main-button test">Shopping</button></a>
                 </div>
             </div>
                 
@@ -47,7 +51,7 @@
                 <div class="left-page">
                     <div class="recipe-title">
                         Breakfast: Bagel Sandwich
-                        <div  class="addToCartButton float">
+                        <div  class="addToCartButton">
                             <img class = "img-unclick" src="./images/addToCart.png">
                             <img class = "img-clicked" src="./images/addedToCart.png">
                         </div>
@@ -95,7 +99,7 @@
 
                     <div class="recipe-title">
                         Lunch: Black bean quesadillas
-                        <div  class="addToCartButton float">
+                        <div  class="addToCartButton ">
                             <img class = "img-unclick" src="./images/addToCart.png">
                             <img class = "img-clicked" src="./images/addedToCart.png">
                         </div>
@@ -143,7 +147,7 @@
                 <div class="left-page">
                     <div class="recipe-title">
                         Upgraded Instant Ramen
-                        <div  class="addToCartButton float">
+                        <div  class="addToCartButton ">
                             <img class = "img-unclick" src="./images/addToCart.png">
                             <img class = "img-clicked" src="./images/addedToCart.png">
                         </div>
@@ -186,7 +190,7 @@
 
                     <div class="recipe-title">
                         Dessert: Brownie in a mug
-                        <div  class="addToCartButton float">
+                        <div  class="addToCartButton ">
                             <img class = "img-unclick" src="./images/addToCart.png">
                             <img class = "img-clicked" src="./images/addedToCart.png">
                         </div>
