@@ -1,3 +1,6 @@
+/* This css file is for the headers in the shopping/nutrition page and for the login/user icon  */
+
+/*Site Header*/
 .siteHeader{
     height: 300px;
     min-width: 100%;
@@ -7,24 +10,7 @@
     position: relative;
 }
 
-body{
-    background-color: var(--green1);
-}
-
-#default{
-    background-image: url(./images/defaultBackground.jpg);
-    background-size: cover;
-    background-repeat: repeat;
-}
-
-
-
-#homeButton:hover{
-    max-height: 90px;
-    font-size: 2.5rem;
-    padding: 15px;
-  
-}
+/* Button Functionality */
 
 .main-button {
     background-color: var(--background-button-color);
@@ -128,8 +114,33 @@ body{
 }
 #icon {
     height: 40px;
-    width: auto;
-    margin: auto;
-    margin-top: 5px;
-    margin-left: 5px;
+    width: 40px;
+    margin: 5px;
+    /* margin-top: 5px;
+    margin-left: 5px;*/
+   
 }
+
+#homeButton:hover{
+    max-height: 90px;
+    font-size: 2.5rem;
+    padding: 15px;
+  
+}
+
+/* Background image */
+
+
+body{
+    background-color: var(--green1);
+}
+
+#default{
+    background-image: url(./images/defaultBackground.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+
+
+
