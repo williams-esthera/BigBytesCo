@@ -1,11 +1,10 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: var(--green1);
 }
 
 /* Header*/
 
-#homeButton{
+/* #homeButton{
     background-color: var(--green2);
     color: var(--brown);
 }
@@ -20,10 +19,11 @@ body {
     height: 60px;
     position: relative;
     float: right;
-    /*left: -150px;*/
+    /*left: -150px;
     transition: width 0.3s, background-color 0.3s, color 0.3s;
-}
-#username {
+}*/
+
+/* #username {
     text-decoration: underline;
 }
 #welcome {
@@ -46,7 +46,7 @@ body {
     margin: auto;
     margin-top: 5px;
     margin-left: 5px;
-}
+}  */
 .back {
     border: 0;
     line-height: 2.5;
