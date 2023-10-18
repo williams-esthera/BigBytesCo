@@ -1,0 +1,32 @@
+body{
+    background-image: url("homepageBackground.jpg");
+}
+.center {
+    width: 590px;
+    height: 340px;
+    background-color: #92AD94;
+    /*background:rgba(0,0,255,0.5);*/
+    position: absolute; 
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-color: black;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 5px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+  }
+
+h3,h4{
+    font-family: Tahoma;
+    color: #503D42;
+    opacity: 1;
+}
+
+#recipe{
+    font-style:italic;
+}
