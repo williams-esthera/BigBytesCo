@@ -2,7 +2,7 @@
 
 require_once(__DIR__.'/Answer.php');
 
-class MultipleChoice implements Answer {
+class Radio implements Answer {
 
     public $correctAnswer;
     public $answerChoices;

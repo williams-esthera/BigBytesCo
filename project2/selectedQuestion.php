@@ -6,9 +6,9 @@ require_once(__DIR__.'/dependencies.php');
 
 
 // For now, picks a random question and validates it
-$number = rand(0, count($GeneralKnowledge) - 1);
+$number = rand(0, count($TestingQuestions) - 1);
 
-$question = $GeneralKnowledge[$number];
+$question = $TestingQuestions[$number];
 
 print_r($question);
 

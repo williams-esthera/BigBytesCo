@@ -1,20 +1,14 @@
-<html>
-
-    <head></head>
-
-    <body>
-        <?php 
-            require_once(__DIR__.'/dependencies.php');
-            
-        ?>
-        
-        <?php 
-
-            print "
-                <form method='post' action='./selectedQuestion.php'>
-                    <button type='submit'>try</button>
-                </form>
-            ";
-        ?>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy Game</title>
+    <link rel="stylesheet" href="./components/style.css">
+</head>
+<body>
+    <div class="container">
+        <?php include 'jeopardy.php'; ?>
+    </div>
+</body>
 </html>

@@ -10,7 +10,7 @@ echo "<br> <br>";
 print_r($_POST);
 echo "<br> <br>";
 
-$question = $GeneralKnowledge[$_POST["questionNumber"]];
+$question = $TestingQuestions[$_POST["questionNumber"]];
 
 print_r($question);
 echo "<br> <br>";
