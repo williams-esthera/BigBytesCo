@@ -18,11 +18,12 @@ class Radio implements Answer {
         echo "<form method='post' action='./validateQuestion.php'>";        
         for($i = 0; $i < count($this -> answerChoices); $i++) {
             $answer = $this -> answerChoices[$i];
-            echo "<input type='radio' value=$answer name='answer' />";
-            echo "<label for='$answer'>$answer</label>";
+            // echo "<input type='radio' value=$answer name='answer' class='answer-button' />";
+            echo '<button type="submit" name="answer" value="' . $answer . '" class="answer-button">' . $answer . '</button>';
+            // echo "<label for='$answer'>$answer</label>";
         }
 
-        echo "<button type='submit'>Submit</button>";
+        // echo "<button type='submit'>Submit</button>";
     }
 
     function setCorrectAnswer($correctAnswer) {

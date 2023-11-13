@@ -33,11 +33,14 @@ class Checkbox implements Answer {
 
     function displayAnswer() {
         echo "<form method='post' action='./validateQuestion.php'>";        
+
+        echo "<div>";
         for($i = 0; $i < count($this -> answerChoices); $i++) {
             $answer = $this -> answerChoices[$i];
             echo "<input type='checkbox' value=$answer name='answer[]' />";
             echo "<label for='$answer'>$answer</label>";
         }
+        echo "</div>";
 
         echo "<button type='submit'>Submit</button>";
     }

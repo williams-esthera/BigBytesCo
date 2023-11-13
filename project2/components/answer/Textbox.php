@@ -16,8 +16,10 @@ class Textbox implements Answer {
     function displayAnswer() {
         echo "<form method='post' action='./validateQuestion.php'>";
         
-        echo "<input type='text' name='answer'>";
-        echo "<label for='answer'>Answer:</label>";
+        // echo "<label for='answer'>Answer:</label>";
+        echo "<div>";
+        echo "<input type='text' name='answer' placeholder='Enter answer here'>";
+        echo "</div>";
 
         echo "<button type='submit'>Submit</button>";
     }
