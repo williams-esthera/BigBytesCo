@@ -19,15 +19,6 @@
         ),
         (new Question())
             -> setCategory(Category::GeneralKnowledge)
-            -> setDescription('2 + 2 = 4')
-            -> setMoney(100)
-            -> setAnswer(
-                (new Radio())
-                    -> setCorrectAnswer('True')
-                    -> setAnswerChoices(array('True', 'False'))
-        ),
-        (new Question())
-            -> setCategory(Category::GeneralKnowledge)
             -> setDescription('please type hotdog')
             -> setMoney(100)
             -> setAnswer(
@@ -45,4 +36,8 @@
             )
     );
 
+
+    $GeneralKnowledge = array(
+        
+    );
 ?>

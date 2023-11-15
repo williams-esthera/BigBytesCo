@@ -1,5 +1,6 @@
 <?php
 session_start();
+$currentUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 include 'questions.php';
 
 // Initialize 'clicked' session variable if not set
@@ -14,12 +15,11 @@ if (!isset($_SESSION['clicked'])) {
     }
 
     $_SESSION['turn'] = $_POST['username'][0];
+    $_SESSION['first-turn'] = $_SESSION['turn'];
 }
 
-print_r($_SESSION);
-
 // Function to calculate total points
-function calculateTotalPoints($questions, $clicked) {
+function calculateTotalPoints($questions, $clicked, $currentUsername) {
     $totalPoints = 0;
 
     foreach ($clicked as $questionNumber => $clickedValue) {
@@ -34,9 +34,33 @@ function calculateTotalPoints($questions, $clicked) {
         }
     }
 
+    $profileFile = 'profiles.txt';
+    $profiles = file($profileFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+    // Search for the current user in the profiles array
+    $playerNumber = -1;
+    foreach ($profiles as $index => $profile) {
+        $userInfo = explode('|', $profile);
+        if ($userInfo[1] === $currentUsername) {
+            $playerNumber = $index;
+            break;
+        }
+    }
+
+    if ($playerNumber !== -1) {
+        // Update the score based on the points earned during the game
+        $userInfo = explode('|', $profiles[$playerNumber]);
+        $userInfo[2] = $totalPoints; // Set the score to the new totalPoints
+
+        // Save the updated player's information back to the text file
+        $profiles[$playerNumber] = implode('|', $userInfo);
+        file_put_contents($profileFile, implode("\n", $profiles));
+    }
+
     return $totalPoints;
 }
 
+// Edit this; non-functional for now
 // Check if all questions are selected
 $allQuestionsSelected = true;
 foreach ($questions as $category) {
@@ -59,9 +83,12 @@ if ($allQuestionsSelected) {
     exit();
 }
 
+$currentUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+
 // Display the current score
 echo '<div class="total-points">';
-$currentPoints = calculateTotalPoints($questions, $_SESSION['clicked']);
+$currentPoints = calculateTotalPoints($questions, $_SESSION['clicked'], $currentUsername);
+// echo '<h2>Current Points: ' . $currentPoints . '</h2>';
 
 $players = $_SESSION['players'];
 foreach($players as $player => $points) {
@@ -69,9 +96,6 @@ foreach($players as $player => $points) {
 }
 
 echo '<h2>Current turn: ' . $_SESSION['turn'] . '</h2>';
-// echo '<h2>Current Points: ' . $currentPoints . '</h2>';
-
-
 
 echo '</div>';
 
@@ -109,6 +133,7 @@ if (isset($_POST['q'])) {
     }
 } else {
     echo '<form method="post" action="index.php">';
+    echo '<div class="container">';
     echo '<table>';
     echo '<tr>';
     echo '<th></th>';
@@ -121,23 +146,23 @@ if (isset($_POST['q'])) {
         echo '<tr>';
         echo '<td><strong>' . ($i + 1) . '</strong></td>';
 
-        // Inside your loop where you echo the buttons
         for ($j = 0; $j < count($categories); $j++) {
             $questionNumber = ($j * 10) + ($i + 1);
 
             // Check if the question has already been selected
             if (isset($_SESSION['clicked'][$questionNumber])) {
                 // Question already selected, display the question text on the button
-                echo '<td><button disabled>' . $questions[$j]["questions"][$i] . '</button></td>';
+                echo '<td><button disabled class="selected-button">' . $questions[$j]["questions"][$i] . '</button></td>';
             } else {
                 // Question available to select
-                echo '<td><button type="submit" name="q" value="' . $questionNumber . '">' . '$' . $questions[$j]["points"][$i] . '</button></td>';
+                echo '<td><button type="submit" name="q" value="' . $questionNumber . '" class="question-button">' . '$' . $questions[$j]["points"][$i] . '</button></td>';
             }
         }
 
         echo '</tr>';
     }
     echo '</table>';
+    echo '</div>';
     echo '</form>';
 }
 ?>

@@ -9,7 +9,6 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
     $category = floor($q / 10);
     $value = ($q % 10) - 1;
 
-    // Include the questions data
     include 'questions.php';
 
     $question = $questions[$category]["questions"][$value];
@@ -20,9 +19,26 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
 
     // Adds point to current player turn
     if($isCorrect) {
-        echo $_SESSION['players'][$_SESSION['turn']];
         $_SESSION['players'][$_SESSION['turn']] += $questions[$category]['points'][$value];
     }
+
+    // Goes to next turn
+    function getNextTurn($inputKey) {
+        $keys = array_keys($_SESSION['players']);
+        $values = array_values($_SESSION['players']);
+    
+        $index = array_search($inputKey, $keys);
+    
+        if ($index !== false && isset($keys[$index + 1])) {
+            return $keys[$index + 1];
+        } else {
+            return null;
+        }
+    }
+
+    $nextKey = getNextTurn($_SESSION['turn']);
+    $nextTurn = $nextKey == null ? $_SESSION['first-turn'] : $nextKey;
+    $_SESSION['turn'] = $nextTurn;
 
     // Store whether the answer is correct in the session
     $_SESSION['correct'][$q] = $isCorrect;
@@ -50,31 +66,6 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
                 echo '<h1 class="correct">Correct!</h1>';
             } else {
                 echo '<h1 class="wrong">Wrong!</h1>';
-            }
-
-            // Goes to next turn
-            $i = 0;
-            foreach($players as $player => $points) {
-                $i++;
-                if($player == $_SESSION['turn']) {
-                    break;
-                }
-            }
-
-            echo $i;
-            echo '<br>';
-
-            if($i == count($_SESSION['players']) - 1) {
-                $_SESSION['turn'] = $_SESSION['players'][0];
-            } else {
-                $j = 0;
-                foreach($players as $player => $points) {
-                    $j++;
-                    if($i == $j) {
-                        $_SESSION['turn'] = $player;
-                        break;
-                    }
-                }
             }
 
             ?>

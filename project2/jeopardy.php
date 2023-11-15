@@ -12,7 +12,7 @@ foreach (Category::cases() as $category) {
     print '<th>' . $categoryName . '</th>';
 }
 echo '</tr>';
-
+ 
 for($i = 0; $i < 5; $i++) {
     echo '<tr>';
     echo '<td><strong>' . ($i + 1) . '</strong></td>';
@@ -22,15 +22,6 @@ for($i = 0; $i < 5; $i++) {
     echo '</tr>';
 }
 
-// for ($i = 0; $i < count($questions[0]["answers"]); $i++) {
-//     echo '<tr>';
-//     echo '<td><strong>' . ($i + 1) . '</strong></td>';
-//     for ($j = 0; $j < count($categories); $j++) {
-//         $questionNumber = ($j * 10) + ($i + 1);
-//         echo '<td><button type="submit" name="q" value="' . $questionNumber . '">' . $questions[$j]["question"] . '</button></td>';
-//     }
-//     echo '</tr>';
-// }
 
 echo '</table>';
 echo '</form>';

@@ -18,7 +18,7 @@ session_start();
         <form action='./create_profile.php' method='post'>
 
             <label for='player-count'>Player count:</label>
-            <input type='number' id='player-count' name='player-count' min='1' max='4'>
+            <input type='number' id='player-count' name='player-count' min='1' max='8'>
             <br>
             <button type='submit'>Create profile(s)</button>
         </form>
