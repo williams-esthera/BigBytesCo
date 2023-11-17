@@ -117,13 +117,14 @@ if (isset($_POST['q'])) {
             echo '<tr>';
             echo '<th></th>';
             foreach ($categories as $category) {
-                echo '<th>' . $category . '</th>';
+                echo '<th class = "category-title">' . $category . '</th>';
             }
             echo '</tr>';
 
             for ($i = 0; $i < count($questions[0]["questions"]); $i++) {
                 echo '<tr>';
-                echo '<td><strong>' . ($i + 1) . '</strong></td>';
+                //echo '<td><strong>' . ($i + 1) . '</strong></td>';
+                echo '<td></td>';
 
                 for ($j = 0; $j < count($categories); $j++) {
                     $questionNumber = ($j * 10) + ($i + 1);
@@ -134,7 +135,12 @@ if (isset($_POST['q'])) {
                         echo '<td><button disabled class="selected-button">' . $questions[$j]["questions"][$i] . '</button></td>';
                     } else {
                         // Question available to select
-                        echo '<td><button type="submit" name="q" value="' . $questionNumber . '" class="question-button">' . '$' . $questions[$j]["points"][$i] . '</button></td>';
+                        //echo '<td><button type="submit" name="q" value="' . $questionNumber . '" class="question-button">' . '$' . $questions[$j]["points"][$i] . '</button></td>';
+                        if($j == 0|| $j == 2 || $j == 4){
+                            echo '<td><button type="submit" name="q" value="' . $questionNumber . '" class="question-button">' . '$' . $questions[$j]["points"][$i] . '</button></td>';
+                        }else{
+                            echo '<td><button type="submit" name="q" value="' . $questionNumber . '" class="question-button2">' . '$' . $questions[$j]["points"][$i] . '</button></td>';
+                        }
                     }
                 }
 
