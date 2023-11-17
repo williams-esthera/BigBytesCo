@@ -2,6 +2,7 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $player = isset($_POST['player']) ? $_POST['player'] : '';
     $username = isset($_POST['username']) ? $_POST['username'] : '';
 
@@ -11,13 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Read existing profiles
     $existingProfiles = file($profileFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-    // Append the new profile
-    $profileData = "$player|$username|0"; // Assuming 0 is the default score
-    $existingProfiles[] = $profileData;
-
-    // Save the updated profiles back to the text file
-    file_put_contents($profileFile, implode("\n", $existingProfiles));
-
     // Set the session variable
     $_SESSION['username'] = $username;
 
@@ -26,6 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     for($i = 0; $i < count($_POST['username']); $i++) {
         echo '<h2>Player: ' . $_POST['username'][$i] . '</h2>';
+		
+		// Append the new profile
+		$profileData = "$player|$username|0"; // Assuming 0 is the default score
+		$existingProfiles[] = $profileData;
+
+		// Save the updated profiles back to the text file
+		file_put_contents($profileFile, implode("\n", $existingProfiles));
+
     }
 
     echo '<h1> RULES </h1>';

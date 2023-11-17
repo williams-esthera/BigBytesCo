@@ -12,7 +12,8 @@
         <form action="process_profile.php" method="post">
             
             <?php 
-            
+			//player count comes from main.php
+			//asks for all player names
             for($i = 0; $i < $_POST["player-count"]; $i++) {
                 $username = 'username' . $i;
                 echo "<label for='username[]'>Username " . ($i + 1) . ": ";
