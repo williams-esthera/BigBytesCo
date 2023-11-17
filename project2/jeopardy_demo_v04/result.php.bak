@@ -87,10 +87,11 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
 				//increment num of questions answered by 1
 				$selectedQuestions++;
 				
+				//update value
 				$_SESSION['selectedQuestions'] = $selectedQuestions;
 				
+				//once all questions have been answered go to leaderboard page
 				if($selectedQuestions == 26){
-				//echo '<br><a href="win.php">To Win Leaderboard</a>' ;
 					header("Location: win.php?points=$finalPoints" );
 					exit();
 				}

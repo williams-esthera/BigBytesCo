@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,9 +36,9 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
     function getNextTurn($inputKey) {
         $keys = array_keys($_SESSION['players']);
         $values = array_values($_SESSION['players']);
-    
+
         $index = array_search($inputKey, $keys);
-    
+
         if ($index !== false && isset($keys[$index + 1])) {
             return $keys[$index + 1];
         } else {
@@ -59,7 +60,6 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
 
 ?>
 
-
 <body>
     <div class="container">
         <h3>Jeopardy Result...</h3>
@@ -71,8 +71,8 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
                 echo '<h1 class="wrong">Wrong!</h1>';
             }
             ?>
-			
-			
+
+
             <p>Your answer: <?php echo $selectedAnswerText; ?></p>
             <p>Correct answer: <?php echo $correctAnswerText; ?></p>
             <p>Question: <?php echo $question; ?></p>
@@ -82,25 +82,25 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
 			if (isset($_SESSION['selectedQuestions'])){
 				//check if selectedQuestion variable is set
 				$selectedQuestions = isset($_POST['selectedQuestions'])? $_POST['selectedQuestions'] : $_SESSION['selectedQuestions'];
-				
+
 				//debug print statement to track number of answered questions
 				//echo "Number of Answered Questions: " . $selectedQuestions;
-				
+
 				//increment num of questions answered by 1
 				$selectedQuestions++;
-				
+
 				//update value
 				$_SESSION['selectedQuestions'] = $selectedQuestions;
-				
+
 				//once all questions have been answered go to leaderboard page
-				if($selectedQuestions == 26){
+				if($selectedQuestions == 6){
 					header("Location: win.php?points=$finalPoints" );
 					exit();
 				}
 			}
 			?>
 			<br>
-			
+
         </div>
     </div>
 </body>

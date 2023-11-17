@@ -1,24 +1,35 @@
 :root{
 --black : #011627;
 --pink:  #FF3366;
---green: #F6F7F8;
---white: #2EC4B6;
---blue: #20A4F3 ;
+--green: #2EC4B6;
+--white: #F6F7F8;
+--blue: #20A4F3;
 
 }
 
 *{
-color: var(--pink);
+color: var(--white);
+font-family:sans-serif;
 }
-
+input{
+color: var(--pink);	
+}
 body {
-    font-family: Arial, sans-serif;
+  
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-background-color: var(--black);
+	background-color: var(--black);
+}
+
+.title{
+	font-family: "Arial Black", "Arial Bold";
+	font-size: 100px;
+	color: var(--pink);
+	-webkit-text-stroke: 2px var(--white);
+	-webkit-text-stroke-width: thin;
 }
 
 table {
@@ -30,6 +41,10 @@ display: flex;
 flex-direction: column;
 flex-wrap: wrap;
 
+}
+
+.center{
+	text-align:center;
 }
 
 .container {
@@ -59,7 +74,7 @@ button {
     padding: 10px;
     margin: 5px;
     cursor: pointer;
-    border: none;
+    border: 2px solid var(--white);
     background-color: var(--pink);
     color: white;
     border-radius: 5px;
@@ -109,4 +124,8 @@ button {
     border-radius: 5px;
     height: 75px;
     width: 200px;
+}
+
+.leaderboard {
+    border: 2px solid black;
 }

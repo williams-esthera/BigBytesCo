@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Jeopardy Game</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+
+
  <?php
  
 //demo 4
@@ -6,7 +17,7 @@ $currentUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 include 'questions.php';
 
 //check if the selected question variable is in the session, and initialize it to 1
-
+//Variable is used to determine whether all questions have been answered
 //this will be accessed in displayQuestion
  if (!isset($_SESSION['selectedQuestions'])){
 	$_SESSION['selectedQuestions'] = 1;
@@ -174,3 +185,5 @@ if (isset($_POST['q'])) {
     echo '</form>';
 }
 ?>
+
+<html>

@@ -8,7 +8,7 @@
 }
 
 *{
-color: var(--pink);
+color: var(--white);
 }
 
 body {

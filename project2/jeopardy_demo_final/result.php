@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Jeopardy Result</title>
-</head>
-
 <?php
 session_start();
 
@@ -35,9 +26,9 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
     function getNextTurn($inputKey) {
         $keys = array_keys($_SESSION['players']);
         $values = array_values($_SESSION['players']);
-    
+
         $index = array_search($inputKey, $keys);
-    
+
         if ($index !== false && isset($keys[$index + 1])) {
             return $keys[$index + 1];
         } else {
@@ -59,7 +50,14 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
 
 ?>
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jeopardy Result</title>
+</head>
 <body>
     <div class="container">
         <h3>Jeopardy Result...</h3>
@@ -71,36 +69,39 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
                 echo '<h1 class="wrong">Wrong!</h1>';
             }
             ?>
-			
-			
+
+            <p>Question: <?php echo $question; ?></p>
             <p>Your answer: <?php echo $selectedAnswerText; ?></p>
             <p>Correct answer: <?php echo $correctAnswerText; ?></p>
-            <p>Question: <?php echo $question; ?></p>
+            
             <a href="index.php">Back to Board</a>
 			<br>
 			<?php 
 			if (isset($_SESSION['selectedQuestions'])){
 				//check if selectedQuestion variable is set
 				$selectedQuestions = isset($_POST['selectedQuestions'])? $_POST['selectedQuestions'] : $_SESSION['selectedQuestions'];
-				
+
 				//debug print statement to track number of answered questions
 				//echo "Number of Answered Questions: " . $selectedQuestions;
-				
+
 				//increment num of questions answered by 1
-				$selectedQuestions++;
-				
+				//$selectedQuestions++;
+
 				//update value
 				$_SESSION['selectedQuestions'] = $selectedQuestions;
-				
+
 				//once all questions have been answered go to leaderboard page
-				if($selectedQuestions == 26){
-					header("Location: win.php?points=$finalPoints" );
-					exit();
-				}
+				// if($selectedQuestions == 5){
+				// 	//header("Location: win.php?points=$finalPoints" );
+				// 	//exit();
+				// }
+                // else{
+                //     echo "Number of Selected Questions:" . $selectedQuestions ;
+                // }
 			}
 			?>
 			<br>
-			
+
         </div>
     </div>
 </body>
