@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fifteen Puzzle</title>
+    <style>
+        /* Styles for the puzzle container */
+        #puzzle-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            width: 400px; /*puzzle size */
+            height: 400px;
+            gap: 2px; /* Gap between tiles */
+        }
+
+        /*for individual puzzle tiles */
+        .puzzle-tile {
+            box-sizing: border-box;
+            border: 2px solid black;
+            font-size: 32px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*for empty tile */
+        .empty-tile {
+            background-color: #ffffff;
+            cursor: default;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fifteen Puzzle</h1>
+    <p>
+        The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly
+        making moves that slide squares into the empty space. How quickly can you solve it?
+    </p>
+    <div id="puzzle-container">
+        <!-- Puzzle will go here -->
+    </div>
+    <button id="shuffle-btn">Shuffle</button>
+    <p>
+        American puzzle author and mathematician Sam Loyd is often falsely credited with creating
+        the puzzle; indeed, Loyd claimed from 1891 until his death in 1911 that he invented it.
+        The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster in Canastota, New York.
+    </p>
+    <p align="right">
+        <a href="link_to_W3C_validator"><img src="" alt="W3C Validator"></a>
+        <a href="link_to_JSLint"><img src="" alt="JSLint"></a>
+    </p>
+
+    <script src="fifteen.js"></script>
+</body>
+</html>
