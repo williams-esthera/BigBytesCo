@@ -17,7 +17,7 @@
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(4, 1fr);
             width: 400px; /*puzzle size */
-            height: 400px;
+            /* height: 400px; */
             gap: 2px; /* Gap between tiles */
         }
 
@@ -123,4 +123,14 @@
         }
          #shuffle-btn{
             margin: 20px;
+         }
+
+         .hovered {
+            transform: scaleX(1.1) scaleY(1.1);
+            transition: .25s ease-out;
+         }
+
+         .hoveredAfter {
+            transform: scaleX(1) scaleY(1);
+            transition: .25s ease-out;
          }

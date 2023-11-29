@@ -44,26 +44,29 @@
     </div>
 
     <!-- Start Game-->
-    <div id = "startBox" class = "modal">
+    <dialog id = "startBox" class = "modal">
         <div class ="modal-background">
             <span class = "close">&times;</span>
             <h3>Select Background</h3>
             <div class = "flex-select">
-                <img src ="background.png" class = "background-option" id ="background1">
-                <img src ="background.png" class = "background-option" id ="background2">
-                <img src ="background.png" class = "background-option" id ="background3">
-                <img src ="background.png" class = "background-option" id ="background4">
-                <img src ="background.png" class = "background-option" id ="background5">
+                <img onclick="changeBackground('./components/bg0.jpeg')" src ="./components/bg0.jpeg" class = "background-option" id ="background1">
+                <img onclick="changeBackground('./components/bg1.jpeg')" src ="./components/bg1.jpeg" class = "background-option" id ="background2">
+                <img onclick="changeBackground('./components/bg2.jpeg')" src ="./components/bg2.jpeg" class = "background-option" id ="background3">
+                <img onclick="changeBackground('./components/bg3.jpeg')" src ="./components/bg3.jpeg" class = "background-option" id ="background4">
+                <img onclick="changeBackground('./components/bg4.jpeg')" src ="./components/bg4.jpeg" class = "background-option" id ="background5">
             </div>
             <h3>Select Puzzle Size</h3>
-            <div class = "flex-select">
-                <button id = "3x3">3x3</button>
-                <button id = "6x6">6x6</button>
-                <button id = "8x8">8x8</button>
-                <button id = "10x10">10x10</button>
+            <div class = "flex-select" id="sizeSelect">
+                <button onclick="updateSize(3)" class="background-option">3x3</button>
+                <button onclick="updateSize(6)" id="6">6x6</button>
+                <button onclick="updateSize(8)" id="8">8x8</button>
+                <button onclick="updateSize(10)" id="10">10x10</button>
             </div>
+
+          
         </div>
-    </div>
+            
+    </dialog>
 
     <script src="fifteen.js"></script>
 </body>

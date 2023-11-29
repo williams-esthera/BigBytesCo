@@ -1,6 +1,26 @@
 // Constants for the puzzle size
-const PUZZLE_SIZE = 4;
+let currentBackgroundImage = './components/bg0.jpeg';
+let PUZZLE_SIZE = 4;
 const TILE_SIZE = 100;
+
+function changeBackground(newBackgroundImage) {
+    // Update the current background image
+ currentBackgroundImage = newBackgroundImage;
+
+ // Get all elements with the class "puzzle-tile"
+ const tiles = document.getElementsByClassName('puzzle-tile');
+
+ // Iterate through all tiles and update their background images
+ for (let i = 0; i < tiles.length - 1; i++) {
+     tiles[i].style.backgroundImage = `url(${currentBackgroundImage})`;
+ }
+}
+
+// Function to change puzzle size
+function updateSize(newSize) {
+    PUZZLE_SIZE = newSize;
+    generatePuzzle();
+}
 
 function createTile(row, col) {
     const tile = document.createElement('div');
@@ -9,15 +29,15 @@ function createTile(row, col) {
     // Set tile dimensions and position
     tile.style.width = `${TILE_SIZE}px`;
     tile.style.height = `${TILE_SIZE}px`;
-   tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
-    tile.style.backgroundImage = 'url(background.png)'; // background image of the puzzle
-    tile.style.backgroundSize = `${PUZZLE_SIZE * TILE_SIZE}px`; // Adjust based on puzzle size
+    tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
+    tile.style.backgroundImage = `url(${currentBackgroundImage})`; // background image of the puzzle
+    tile.style.backgroundSize = `${PUZZLE_SIZE * TILE_SIZE}px ${PUZZLE_SIZE * TILE_SIZE}px`;
+ // Adjust based on puzzle size
 
     // Set background position to display a part of the image
-    const xPosition = (PUZZLE_SIZE - 0 - col) * TILE_SIZE;
-    const yPosition = (PUZZLE_SIZE - 0 + row) * TILE_SIZE;
-    tile.style.backgroundPosition = `${xPosition}px -${yPosition}px`;
-
+    const xPosition = col * TILE_SIZE;
+    const yPosition = row * TILE_SIZE;
+    tile.style.backgroundPosition = `-${xPosition}px -${yPosition}px`;
 
     // Set grid row and column positions
     tile.style.gridRow = `${row + 1}`;
@@ -43,8 +63,10 @@ function createTile(row, col) {
 }
 
 function areTilesAdjacent(tile1, tile2) {
+    // The tile to be empty
     const tile1Row = parseInt(tile1.style.gridRow);
     const tile1Col = parseInt(tile1.style.gridColumn);
+
     const tile2Row = parseInt(tile2.style.gridRow);
     const tile2Col = parseInt(tile2.style.gridColumn);
 
@@ -75,6 +97,33 @@ function handleTileClick() {
     }
 }
 
+function handleTileHover() {
+    const hoveredTile = this;
+    const emptyTile = document.querySelector('.empty-tile');
+
+    // Removes hover effect if it has it
+    // hovered = Animation for growing
+    // hoveredAfter = Animation for shrinking to normal size
+    if(hoveredTile.classList.contains('hovered')) {
+        // Removes hover effect after 200 ms
+        setTimeout(() => {
+            hoveredTile.classList.remove('hovered');
+            hoveredTile.classList.remove('hoveredAfter')
+        }, 200);
+        
+        if(hoveredTile.classList.contains('hoveredAfter')) {
+            hoveredTile.classList.remove('hoveredAfter');
+        }
+        hoveredTile.classList.add('hoveredAfter')
+        return;
+    }
+
+    // Adds hover effect is appliable
+    if(areTilesAdjacent(hoveredTile, emptyTile)) {
+        hoveredTile.classList.add('hovered');
+    }
+}
+
 //generate the puzzle grid
 function generatePuzzle() {
     const container = document.getElementById('puzzle-container');
@@ -84,6 +133,11 @@ function generatePuzzle() {
         for (let col = 0; col < PUZZLE_SIZE; col++) {
             const tile = createTile(row, col);
             tile.addEventListener('click', handleTileClick); // Add click event to each tile
+
+            // Add hover event to each tile
+            tile.addEventListener('mouseenter', handleTileHover); 
+            tile.addEventListener('mouseleave', handleTileHover);
+
             container.appendChild(tile); // Append the created tile to the container
         }
     }
@@ -95,6 +149,27 @@ function shuffleTiles() {
     const gridSize = PUZZLE_SIZE * PUZZLE_SIZE;
 
     const tileArray = Array.from(tiles);
+
+    // The shuffle tiles function works perfectly fine as long as the last tile is the empty tile
+    // so I just swapped the last tile and empty tile to ensure the last tile is ALWAYS empty
+
+    // Fetches the last tile
+    const lastTilePosition = PUZZLE_SIZE + ' / ' + PUZZLE_SIZE;
+    let lastTile;
+    for(let i = 0; i < tiles.length; i++) {
+        const gridArea = tiles[i].style.gridArea
+        if(gridArea === lastTilePosition) {
+            lastTile = tiles[i];
+            break;
+        }
+    }
+
+    // Swaps the last tile with the empty tile
+    if(lastTile) {
+        lastTile.style.gridRow = emptyTile.style.gridRow
+        lastTile.style.gridCol = emptyTile.style.gridCol
+        lastTile.style.gridArea = emptyTile.style.gridArea
+    }
 
     for (let i = tileArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -109,7 +184,8 @@ function shuffleTiles() {
     }
 
     //empty tile remains at the bottom right
-    const emptyRow = gridSize - PUZZLE_SIZE + 1;
+    // const emptyRow = gridSize - PUZZLE_SIZE + 1;
+    const emptyRow = PUZZLE_SIZE;
     const emptyCol = gridSize % PUZZLE_SIZE === 0 ? PUZZLE_SIZE : gridSize % PUZZLE_SIZE;
 
     emptyTile.style.gridRow = `${emptyRow}`;
@@ -120,6 +196,7 @@ function shuffleTiles() {
 
     // Re-append shuffled tiles to the container
     tileArray.forEach(tile => {
+        // console.log(tile.style.gridArea)
         container.appendChild(tile);
     });
 
@@ -171,8 +248,3 @@ startButton.onclick = function(){
 closeStart.onclick = function(){
     startBox.style.display = "none";
 }
-
-
-
-
-
