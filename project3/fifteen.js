@@ -135,3 +135,43 @@ document.getElementById('shuffle-btn').addEventListener('click', handleShuffleBu
 
 //generate the puzzle grid when the page loads
 window.addEventListener('load', generatePuzzle);
+
+
+/* Code for PopUp Boxes for rules, start game */
+
+//get rulesBox
+let rulesBox = document.getElementById("rulesBox");
+//get rulesButton
+let rulesButton = document.getElementById("rulesButton");
+//click on rulesbutton to open po up
+rulesButton.onclick = function(){
+    rulesBox.style.display = "block";
+}
+//get close span element
+let closeRules = document.getElementsByClassName("close")[0];
+
+//click on close, to close the pop-up
+closeRules.onclick = function(){
+    rulesBox.style.display = "none";
+}
+
+//get startBox
+let startBox = document.getElementById("startBox");
+//get startButton
+let startButton = document.getElementById("startButton");
+//get close span element
+let closeStart = document.getElementsByClassName("close")[1];
+
+//click on start button to open start box
+startButton.onclick = function(){
+    startBox.style.display = "block";
+}
+//click on close, to close the pop-up
+closeStart.onclick = function(){
+    startBox.style.display = "none";
+}
+
+
+
+
+

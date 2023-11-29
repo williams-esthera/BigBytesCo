@@ -2,39 +2,20 @@
 <html>
 <head>
     <title>Fifteen Puzzle</title>
+    <link href="style.css" rel = "stylesheet">
     <style>
-        /* Styles for the puzzle container */
-        #puzzle-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(4, 1fr);
-            width: 400px; /*puzzle size */
-            height: 400px;
-            gap: 2px; /* Gap between tiles */
-        }
 
-        /*for individual puzzle tiles */
-        .puzzle-tile {
-            box-sizing: border-box;
-            border: 2px solid black;
-            font-size: 32px;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /*for empty tile */
-        .empty-tile {
-            background-color: #ffffff;
-            cursor: default;
-            border: none;
-        }
     </style>
 </head>
 <body>
     <h1>Fifteen Puzzle</h1>
+    <div class = "flex-container center">
+        <button id = "rulesButton">Rules</button>
+        <button id = "startButton">Start Game</button>
+        <button id = "aboutButton">About</button>
+        
+
+    </div>
     <p>
         The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly
         making moves that slide squares into the empty space. How quickly can you solve it?
@@ -52,6 +33,39 @@
         <a href="link_to_W3C_validator"><img src="" alt="W3C Validator"></a>
         <a href="link_to_JSLint"><img src="" alt="JSLint"></a>
     </p>
+
+
+    <!-- Code for Modal Pop-Up Box-->
+    <!-- Rules-->
+    <div id = "rulesBox" class = "modal">
+        <div class = "modal-background" id = "rules">
+            <!-- &times just displays an x-->
+            <span class = "close">&times;</span>
+
+        </div>
+    </div>
+
+    <!-- Start Game-->
+    <div id = "startBox" class = "modal">
+        <div class ="modal-background">
+            <span class = "close">&times;</span>
+            <h3>Select Background</h3>
+            <div class = "flex-select">
+                <img src ="background.png" class = "background-option" id ="background1">
+                <img src ="background.png" class = "background-option" id ="background2">
+                <img src ="background.png" class = "background-option" id ="background3">
+                <img src ="background.png" class = "background-option" id ="background4">
+                <img src ="background.png" class = "background-option" id ="background5">
+            </div>
+            <h3>Select Puzzle Size</h3>
+            <div class = "flex-select">
+                <button id = "3x3">3x3</button>
+                <button id = "6x6">6x6</button>
+                <button id = "8x8">8x8</button>
+                <button id = "10x10">10x10</button>
+            </div>
+        </div>
+    </div>
 
     <script src="fifteen.js"></script>
 </body>
