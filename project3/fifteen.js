@@ -9,14 +9,15 @@ function createTile(row, col) {
     // Set tile dimensions and position
     tile.style.width = `${TILE_SIZE}px`;
     tile.style.height = `${TILE_SIZE}px`;
-    tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
+   tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
     tile.style.backgroundImage = 'url(background.png)'; // background image of the puzzle
     tile.style.backgroundSize = `${PUZZLE_SIZE * TILE_SIZE}px`; // Adjust based on puzzle size
 
     // Set background position to display a part of the image
-    const xPosition = (PUZZLE_SIZE - 1 - col) * TILE_SIZE;
-    const yPosition = (PUZZLE_SIZE - 1 - row) * TILE_SIZE;
-    tile.style.backgroundPosition = `-${xPosition}px -${yPosition}px`;
+    const xPosition = (PUZZLE_SIZE - 0 - col) * TILE_SIZE;
+    const yPosition = (PUZZLE_SIZE - 0 + row) * TILE_SIZE;
+    tile.style.backgroundPosition = `${xPosition}px -${yPosition}px`;
+
 
     // Set grid row and column positions
     tile.style.gridRow = `${row + 1}`;
@@ -135,3 +136,43 @@ document.getElementById('shuffle-btn').addEventListener('click', handleShuffleBu
 
 //generate the puzzle grid when the page loads
 window.addEventListener('load', generatePuzzle);
+
+
+/* Code for PopUp Boxes for rules, start game */
+
+//get rulesBox
+let rulesBox = document.getElementById("rulesBox");
+//get rulesButton
+let rulesButton = document.getElementById("rulesButton");
+//click on rulesbutton to open po up
+rulesButton.onclick = function(){
+    rulesBox.style.display = "block";
+}
+//get close span element
+let closeRules = document.getElementsByClassName("close")[0];
+
+//click on close, to close the pop-up
+closeRules.onclick = function(){
+    rulesBox.style.display = "none";
+}
+
+//get startBox
+let startBox = document.getElementById("startBox");
+//get startButton
+let startButton = document.getElementById("startButton");
+//get close span element
+let closeStart = document.getElementsByClassName("close")[1];
+
+//click on start button to open start box
+startButton.onclick = function(){
+    startBox.style.display = "block";
+}
+//click on close, to close the pop-up
+closeStart.onclick = function(){
+    startBox.style.display = "none";
+}
+
+
+
+
+
