@@ -124,3 +124,13 @@
          #shuffle-btn{
             margin: 20px;
          }
+
+         .hovered {
+            transform: scaleX(1.1) scaleY(1.1);
+            transition: .25s ease-out;
+         }
+
+         .hoveredAfter {
+            transform: scaleX(1) scaleY(1);
+            transition: .25s ease-out;
+         }

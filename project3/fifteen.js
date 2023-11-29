@@ -50,11 +50,6 @@ function areTilesAdjacent(tile1, tile2) {
     const tile2Row = parseInt(tile2.style.gridRow);
     const tile2Col = parseInt(tile2.style.gridColumn);
 
-    // console.log('Tile 1 row: ' + tile1Row);
-    // console.log('Tile 1 col: ' + tile1Col);
-    // console.log('Tile 2 row: ' + tile2Row);
-    // console.log('Tile 2 col: ' + tile2Col)
-
     // Check if the tiles are adjacent horizontally or vertically
     return (
         (Math.abs(tile1Row - tile2Row) === 1 && tile1Col === tile2Col) ||
@@ -82,6 +77,33 @@ function handleTileClick() {
     }
 }
 
+function handleTileHover() {
+    const hoveredTile = this;
+    const emptyTile = document.querySelector('.empty-tile');
+
+    // Removes hover effect if it has it
+    // hovered = Animation for growing
+    // hoveredAfter = Animation for shrinking to normal size
+    if(hoveredTile.classList.contains('hovered')) {
+        // Removes hover effect after 200 ms
+        setTimeout(() => {
+            hoveredTile.classList.remove('hovered');
+            hoveredTile.classList.remove('hoveredAfter')
+        }, 200);
+        
+        if(hoveredTile.classList.contains('hoveredAfter')) {
+            hoveredTile.classList.remove('hoveredAfter');
+        }
+        hoveredTile.classList.add('hoveredAfter')
+        return;
+    }
+
+    // Adds hover effect is appliable
+    if(areTilesAdjacent(hoveredTile, emptyTile)) {
+        hoveredTile.classList.add('hovered');
+    }
+}
+
 //generate the puzzle grid
 function generatePuzzle() {
     const container = document.getElementById('puzzle-container');
@@ -91,6 +113,11 @@ function generatePuzzle() {
         for (let col = 0; col < PUZZLE_SIZE; col++) {
             const tile = createTile(row, col);
             tile.addEventListener('click', handleTileClick); // Add click event to each tile
+
+            // Add hover event to each tile
+            tile.addEventListener('mouseenter', handleTileHover); 
+            tile.addEventListener('mouseleave', handleTileHover)
+
             container.appendChild(tile); // Append the created tile to the container
         }
     }
@@ -123,7 +150,6 @@ function shuffleTiles() {
         lastTile.style.gridCol = emptyTile.style.gridCol
         lastTile.style.gridArea = emptyTile.style.gridArea
     }
-    
 
     for (let i = tileArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
