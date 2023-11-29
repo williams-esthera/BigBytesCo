@@ -1,6 +1,26 @@
 // Constants for the puzzle size
-const PUZZLE_SIZE = 4;
+let currentBackgroundImage = './components/bg0.jpeg';
+let PUZZLE_SIZE = 4;
 const TILE_SIZE = 100;
+
+function changeBackground(newBackgroundImage) {
+    // Update the current background image
+ currentBackgroundImage = newBackgroundImage;
+
+ // Get all elements with the class "puzzle-tile"
+ const tiles = document.getElementsByClassName('puzzle-tile');
+
+ // Iterate through all tiles and update their background images
+ for (let i = 0; i < tiles.length - 1; i++) {
+     tiles[i].style.backgroundImage = `url(${currentBackgroundImage})`;
+ }
+}
+
+// Function to change puzzle size
+function updateSize(newSize) {
+    PUZZLE_SIZE = newSize;
+    generatePuzzle();
+}
 
 function createTile(row, col) {
     const tile = document.createElement('div');
@@ -9,15 +29,15 @@ function createTile(row, col) {
     // Set tile dimensions and position
     tile.style.width = `${TILE_SIZE}px`;
     tile.style.height = `${TILE_SIZE}px`;
-   tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
-    tile.style.backgroundImage = 'url(background.png)'; // background image of the puzzle
-    tile.style.backgroundSize = `${PUZZLE_SIZE * TILE_SIZE}px`; // Adjust based on puzzle size
+    tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
+    tile.style.backgroundImage = `url(${currentBackgroundImage})`; // background image of the puzzle
+    tile.style.backgroundSize = `${PUZZLE_SIZE * TILE_SIZE}px ${PUZZLE_SIZE * TILE_SIZE}px`;
+ // Adjust based on puzzle size
 
     // Set background position to display a part of the image
-    const xPosition = (PUZZLE_SIZE - 0 - col) * TILE_SIZE;
-    const yPosition = (PUZZLE_SIZE - 0 + row) * TILE_SIZE;
-    tile.style.backgroundPosition = `${xPosition}px -${yPosition}px`;
-
+    const xPosition = col * TILE_SIZE;
+    const yPosition = row * TILE_SIZE;
+    tile.style.backgroundPosition = `-${xPosition}px -${yPosition}px`;
 
     // Set grid row and column positions
     tile.style.gridRow = `${row + 1}`;
@@ -116,7 +136,7 @@ function generatePuzzle() {
 
             // Add hover event to each tile
             tile.addEventListener('mouseenter', handleTileHover); 
-            tile.addEventListener('mouseleave', handleTileHover)
+            tile.addEventListener('mouseleave', handleTileHover);
 
             container.appendChild(tile); // Append the created tile to the container
         }
@@ -228,8 +248,3 @@ startButton.onclick = function(){
 closeStart.onclick = function(){
     startBox.style.display = "none";
 }
-
-
-
-
-
