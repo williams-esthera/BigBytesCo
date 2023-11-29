@@ -46,18 +46,9 @@
             cursor: pointer;
         }
 
-        /*Working on */
-        .flex-container{
-            display:flex;
-            flex-wrap: nowrap;
-        }
-        .flex-container > button{
-            width: 100px;
-            height: 50px;
-            margin-right: 25px;
-            margin-left: 25px;
 
-        }
+
+        
         /*Css for the pop up boxes*/
         .modal{
             display: none;
@@ -81,7 +72,7 @@
             width: 80%;
         }
 
-        /* The Close Button */
+        /* The Close Button for popup box*/
         .close {
             color: black;
             float: right;
@@ -95,6 +86,7 @@
             cursor:pointer;
         }
 
+         /*Used for background image selection and size selection*/
         .flex-select{
             display:flex;
             flex-wrap: nowrap;
@@ -116,3 +108,19 @@
             box-shadow: 0px 0px 2px 2px #111;
             cursor: pointer;
         }
+
+         /*Design not functionality */
+            /*Used for3 buttons at the top*/
+        .flex-container{
+            display:flex;
+            flex-wrap: nowrap;
+        }
+        .flex-container > button{
+            width: 100px;
+            height: 50px;
+            margin-right: 25px;
+            margin-left: 25px;
+        }
+         #shuffle-btn{
+            margin: 20px;
+         }

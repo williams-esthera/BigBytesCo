@@ -9,14 +9,15 @@ function createTile(row, col) {
     // Set tile dimensions and position
     tile.style.width = `${TILE_SIZE}px`;
     tile.style.height = `${TILE_SIZE}px`;
-    tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
+   tile.style.lineHeight = `${TILE_SIZE}px`; // For vertical centering
     tile.style.backgroundImage = 'url(background.png)'; // background image of the puzzle
     tile.style.backgroundSize = `${PUZZLE_SIZE * TILE_SIZE}px`; // Adjust based on puzzle size
 
     // Set background position to display a part of the image
-    const xPosition = (PUZZLE_SIZE - 1 - col) * TILE_SIZE;
-    const yPosition = (PUZZLE_SIZE - 1 - row) * TILE_SIZE;
-    tile.style.backgroundPosition = `-${xPosition}px -${yPosition}px`;
+    const xPosition = (PUZZLE_SIZE - 0 - col) * TILE_SIZE;
+    const yPosition = (PUZZLE_SIZE - 0 + row) * TILE_SIZE;
+    tile.style.backgroundPosition = `${xPosition}px -${yPosition}px`;
+
 
     // Set grid row and column positions
     tile.style.gridRow = `${row + 1}`;
