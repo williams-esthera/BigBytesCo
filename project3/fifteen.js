@@ -43,10 +43,17 @@ function createTile(row, col) {
 }
 
 function areTilesAdjacent(tile1, tile2) {
+    // The tile to be empty
     const tile1Row = parseInt(tile1.style.gridRow);
     const tile1Col = parseInt(tile1.style.gridColumn);
+
     const tile2Row = parseInt(tile2.style.gridRow);
     const tile2Col = parseInt(tile2.style.gridColumn);
+
+    // console.log('Tile 1 row: ' + tile1Row);
+    // console.log('Tile 1 col: ' + tile1Col);
+    // console.log('Tile 2 row: ' + tile2Row);
+    // console.log('Tile 2 col: ' + tile2Col)
 
     // Check if the tiles are adjacent horizontally or vertically
     return (
@@ -96,6 +103,28 @@ function shuffleTiles() {
 
     const tileArray = Array.from(tiles);
 
+    // The shuffle tiles function works perfectly fine as long as the last tile is the empty tile
+    // so I just swapped the last tile and empty tile to ensure the last tile is ALWAYS empty
+
+    // Fetches the last tile
+    const lastTilePosition = PUZZLE_SIZE + ' / ' + PUZZLE_SIZE;
+    let lastTile;
+    for(let i = 0; i < tiles.length; i++) {
+        const gridArea = tiles[i].style.gridArea
+        if(gridArea === lastTilePosition) {
+            lastTile = tiles[i];
+            break;
+        }
+    }
+
+    // Swaps the last tile with the empty tile
+    if(lastTile) {
+        lastTile.style.gridRow = emptyTile.style.gridRow
+        lastTile.style.gridCol = emptyTile.style.gridCol
+        lastTile.style.gridArea = emptyTile.style.gridArea
+    }
+    
+
     for (let i = tileArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
 
@@ -109,7 +138,8 @@ function shuffleTiles() {
     }
 
     //empty tile remains at the bottom right
-    const emptyRow = gridSize - PUZZLE_SIZE + 1;
+    // const emptyRow = gridSize - PUZZLE_SIZE + 1;
+    const emptyRow = PUZZLE_SIZE;
     const emptyCol = gridSize % PUZZLE_SIZE === 0 ? PUZZLE_SIZE : gridSize % PUZZLE_SIZE;
 
     emptyTile.style.gridRow = `${emptyRow}`;
@@ -120,6 +150,7 @@ function shuffleTiles() {
 
     // Re-append shuffled tiles to the container
     tileArray.forEach(tile => {
+        // console.log(tile.style.gridArea)
         container.appendChild(tile);
     });
 
