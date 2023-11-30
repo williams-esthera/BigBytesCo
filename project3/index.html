@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fifteen Puzzle</title>
+    <link href="style.css" rel = "stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Fifteen Puzzle</h1>
+    <div class = "flex-container center">
+        <button id = "rulesButton">Rules</button>
+        <button id = "startButton">Start Game</button>
+        <button id = "aboutButton">About</button>
+    </div>
+    <p>
+        The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly
+        making moves that slide squares into the empty space. How quickly can you solve it?
+    </p>
+    <div id="puzzle-container">
+        <!-- Puzzle will go here -->
+    </div>
+    <button id="shuffle-btn">Shuffle</button>
+    <p>
+        American puzzle author and mathematician Sam Loyd is often falsely credited with creating
+        the puzzle; indeed, Loyd claimed from 1891 until his death in 1911 that he invented it.
+        The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster in Canastota, New York.
+    </p>
+    <p align="right">
+        <a href="link_to_W3C_validator"><img src="" alt="W3C Validator"></a>
+        <a href="link_to_JSLint"><img src="" alt="JSLint"></a>
+    </p>
+
+
+    <!-- Code for Modal Pop-Up Box-->
+    <!-- Rules-->
+    <div id = "rulesBox" class = "modal">
+        <div class = "modal-background" id = "rules">
+            <!-- &times just displays an x-->
+            <span class = "close">&times;</span>
+
+        </div>
+    </div>
+
+    <!-- Start Game-->
+    <dialog id = "startBox" class = "modal">
+        <div class ="modal-background">
+            <span class = "close">&times;</span>
+            <h3>Select Background</h3>
+            <div class = "flex-select">
+                <img onclick="changeBackground('./components/bg0.jpeg')" src ="./components/bg0.jpeg" class = "background-option" id ="background1">
+                <img onclick="changeBackground('./components/bg1.jpeg')" src ="./components/bg1.jpeg" class = "background-option" id ="background2">
+                <img onclick="changeBackground('./components/bg2.jpeg')" src ="./components/bg2.jpeg" class = "background-option" id ="background3">
+                <img onclick="changeBackground('./components/bg3.jpeg')" src ="./components/bg3.jpeg" class = "background-option" id ="background4">
+                <img onclick="changeBackground('./components/bg4.jpeg')" src ="./components/bg4.jpeg" class = "background-option" id ="background5">
+            </div>
+            <h3>Select Puzzle Size</h3>
+            <div class = "flex-select" id="sizeSelect">
+                <button onclick="updateSize(3)" class="background-option">3x3</button>
+                <button onclick="updateSize(6)" id="6">6x6</button>
+                <button onclick="updateSize(8)" id="8">8x8</button>
+                <button onclick="updateSize(10)" id="10">10x10</button>
+            </div>
+
+          
+        </div>
+            
+    </dialog>
+
+    <script src="fifteen.js"></script>
+</body>
+</html>

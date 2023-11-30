@@ -1,5 +1,4 @@
-        :root{
-			
+
         }
         
         h1{
@@ -32,7 +31,9 @@
             align-items: center;
             justify-content: center;
         }
-		/*for empty tile */
+
+        /*for empty tile */
+
         .empty-tile {
             background-color: #ffffff;
             cursor: default;
@@ -44,6 +45,7 @@
             box-shadow: 0px 0px 2px 2px #111;
             cursor: pointer;
         }
+
 
         
         /*Css for the pop up boxes*/
@@ -125,6 +127,7 @@
          .hovered {
             transform: scaleX(1.1) scaleY(1.1);
             transition: .25s ease-out;
+
 			animation: shake 0.5s;
          }
 		 
@@ -147,5 +150,3 @@
 			  90% { transform: translate(1px, 2px) rotate(0deg); }
 			  100% { transform: translate(1px, -2px) rotate(-1deg); }
 			}
-		
-		 

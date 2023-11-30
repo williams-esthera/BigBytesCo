@@ -1,0 +1,147 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.back {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #92AD94;
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+      inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+      inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s, font-size 0.3s;
+  }
+  
+  .back:hover {
+    background-color: rgb(221, 225, 189);
+    font-size: larger;
+  }
+  
+  .back:active {
+    box-shadow:
+      inset -2px -2px 3px rgba(241, 255, 204, 0.6),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  /*Main Meals + Nutrition Info */
+#main {
+    font-size: larger;
+    border: 5px #4f6050 solid;
+    border-radius: 10px;
+    background-color: rgb(251, 251, 240);
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+}
+aside {
+    border: 5px #4f6050 solid;
+    border-radius: 10px;
+    background-color: #92AD94;
+    color: #503D42;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 10px;
+    height: 500px;
+    transition: background-color 0.5s, color 0.5s, border 0.5s;
+}
+#meal {
+    flex-basis: 40%;
+}
+aside:hover {
+    border: 8px #92AD94 dashed;
+    background-color: #748B75;
+    color: #fff;
+}
+#generalNutr {
+    flex-basis: 60%;
+}
+#plate {
+    height: 200px;
+    width: auto;
+    float: right;
+    position: relative;
+    right: 10px;
+    top: -350px;
+    transition: height 0.5s;
+}
+#plate:hover {
+    height: 300px;
+    width: auto;
+}
+#add {
+    border: 0px;
+    border-radius: 10px;
+    background-color: #92AD94;
+    color: white;
+    margin-right: 20px;
+    float: right;
+    position: relative;
+    top: -50px ;
+    box-shadow:
+      inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+      inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+#add:hover {
+    background-color: rgb(178, 235, 179);
+}
+#learn {
+    border: 0px;
+    border-radius: 10px;
+    background-color: #92AD94;
+    color: white;
+    position: relative;
+    float: right;
+    height: 20px;
+    top: 20px;
+    box-shadow:
+      inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+      inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+#learn:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#daily {
+    text-decoration: underline;
+    transition: font-weight, font-size 0.3s;
+}
+#daily:hover {
+    font-weight: bold;
+    font-size: larger;
+}
+dt {
+    font-weight: bold;
+    color: rgb(51, 50, 31);
+}
+dd {
+    transition: text-decoration, font-size 0.3s;
+}
+dd:hover {
+    text-decoration: underline;
+    font-size: x-large;
+}
+h3 {
+    transition: font-style, font-weight, font-size 0.3s;
+}
+h3:hover {
+    font-style: italic;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+:root {
+    --green1: #F5FBEF;
+    --green2: #92AD94;
+    --green3: #748B75;
+    --brown: #503D42; 
+    --testing: red;
+    --testing2: purple;
+}
