@@ -80,7 +80,7 @@
         echo'<p>Time remaining: '.$minutes.' minutes '.$seconds.' seconds</p>';
         ?>
         <br><br>
-        <a href="reset_board.php">Reset Board</a>
+        <button><a href="reset_board.php">Reset Board</a></button>
     </div>
 </body>
 </html>

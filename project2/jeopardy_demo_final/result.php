@@ -74,7 +74,7 @@ if (isset($_POST['a']) && isset($_POST['correct']) && isset($_POST['q'])) {
             <p>Your answer: <?php echo $selectedAnswerText; ?></p>
             <p>Correct answer: <?php echo $correctAnswerText; ?></p>
             
-            <a href="index.php">Back to Board</a>
+            <button><a href="index.php">Back to Board</a></button>
 			<br>
 			<?php 
 			if (isset($_SESSION['selectedQuestions'])){
