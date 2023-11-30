@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Game Set!</h1>
+        <h1 class = "title2">Game Over</h1>
         <div class="result">
             <?php
             session_start();
@@ -35,11 +35,11 @@
             }
 
             $totalPoints = calculateTotalPoints($questions, $_SESSION['clicked']);
-            echo '<h2>Total Points: ' . $totalPoints . '</h2>';
+           // echo '<h2>Total Points: ' . $totalPoints . '</h2>';
 
             // Read profiles.txt file
            // $profileFile = 'profiles.txt';
-           $profileFile = 'current_leaderboard.txt';
+             $profileFile = 'current_leaderboard.txt';
             $profiles = file($profileFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
             // Create an array to store player names and scores
@@ -75,7 +75,7 @@
             ?>
 
             <p>Thank you for playing!</p>
-            <button><a href="reset_board.php">Global Leaderboard</a></button>
+            <button><a href="leaderboard.php">Global Leaderboard</a></button>
             <button><a href="reset_board.php">Play Again</a></button>
             <?php 
             $file = fopen("current_leaderboard.txt",'w');

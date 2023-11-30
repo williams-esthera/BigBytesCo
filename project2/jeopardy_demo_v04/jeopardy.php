@@ -7,8 +7,6 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 
-
-
  <?php
  
 //demo 4
@@ -24,8 +22,6 @@ include 'questions.php';
  
  }
 	 
-
-
 // Initialize 'clicked' session variable if not set
 if (!isset($_SESSION['clicked'])) {
     $_SESSION['clicked'] = array();
