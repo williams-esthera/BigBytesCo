@@ -25,6 +25,7 @@
 		
 		h1, h2, h3, p{
 			text-align: center;
+            /*color: white;*/
 		}
 		
 		h1{
@@ -145,6 +146,10 @@
             box-shadow: 0px 0px 2px 2px #111;
             cursor: pointer;
         }
+        .background-option:focus{
+            box-shadow: 0px 0px 2px 2px var(--cream);
+            cursor: pointer;
+        }
 
 /* Works on tile slide animation*/
          .hovered {
@@ -251,5 +256,19 @@
 		transform: scaleX(1.1) scaleY(1.1);
         transition: .25s ease-out;
 		animation: shake 0.5s;
+}
+
+    #messageContainer{
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: var(--orange);
+        border: 2px solid var(--black);
+        border-radius: 25px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 999;
 	}
 	
