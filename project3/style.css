@@ -127,14 +127,14 @@
          .hovered {
             transform: scaleX(1.1) scaleY(1.1);
             transition: .25s ease-out;
-
-			animation: shake 0.5s;
+			animation: shake 0.5s;			
          }
 		 
 
          .hoveredAfter {
             transform: scaleX(1) scaleY(1);
             transition: .25s ease-out;
+			animation: drop-in 1000ms;	
          }
 		 
 		 @keyframes shake {
@@ -150,3 +150,15 @@
 			  90% { transform: translate(1px, 2px) rotate(0deg); }
 			  100% { transform: translate(1px, -2px) rotate(-1deg); }
 			}
+		@keyframes drop-in {
+    from {
+      transform:
+        rotate(-30deg) translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform:
+        rotate(0deg) translateY(0%);
+      opacity: 1;
+    }
+  }
