@@ -1,0 +1,230 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: #503D42;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Variables */
+:root {
+    --background-button-color: rgb(146, 173, 148);
+    --animation-cubic-bezier: cubic-bezier(0,.83,.25,1.61);
+    --animation-time: .5s;
+}
+
+/* Background */
+#homepage-background {
+    /* Image quality is poor for some reason, can't find a fix for it */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('./images/homepageBackground3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 80%;
+    
+    /*transform: scaleY(-1);*/
+    z-index: -2;
+}
+
+#homeBody{
+    background-image: url(./images/defaultBackground.jpg);
+}
+
+/* Homepage containers */
+#homepage-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: -1;
+
+    box-shadow: 2px 2px 6px;
+}
+
+
+
+/* Homepage login */
+.login {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    
+    margin-top: 20px;
+    margin-right: 25px;
+}
+
+.login > button {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+
+    background-color: var(--background-button-color);
+
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+    transition: .35s;
+}
+
+.login > button > img {
+    width: 85%;
+}
+
+/* Homepage holder */
+.homepage-holder {
+    margin-bottom: 50px;
+}
+
+/* Title */
+.homepage-title {
+    font-size: 120px;
+    margin-bottom: 50px;
+    display: flex;
+}
+
+/* Buttons */
+.main-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.main-button {
+    background-color: var(--background-button-color);
+    font-size: 30px;
+    padding: 12px;
+    cursor: pointer;
+    
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+
+    max-height: 60px;
+
+    position: relative;
+
+    /* Animation */
+    transition: .5s;
+}
+
+/* Homepage footer */
+.homepage-footer {
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+/* Misc */
+.homepage-holder > div:nth-child(1), .homepage-holder > div:nth-child(2) div, .homepage-footer {
+    font-style: italic;
+    color: rgba(97, 17, 17, 0.712);
+}
+
+/*            */
+/* Animations */
+/*            */
+
+/* Login */
+.login > button:hover {
+    width: 100px;
+    height: 100px;
+    
+}
+
+/* Main buttons */
+.main-button:hover {
+    background-color: rgba(162, 255, 144, 0);
+    max-height: 100px;
+    font-size: 40px;
+    padding: 18px;
+    
+} 
+
+.main-button:hover::before {
+    transform: scale(1);
+    transform-origin: bottom left;
+}
+
+.main-button::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: rgb(146, 173, 148);
+    z-index: -1;
+    transition: transform .3s ease-out;
+
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+/* Homepage title */
+.homepage-title > div:nth-child(1) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) .2s, invisible .5s ease-out;
+}
+
+.homepage-title > div:nth-child(2) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) .4s, invisible .8s ease-out;
+}
+
+.homepage-title > div:nth-child(3) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) .5s, invisible 1s ease-out;
+}
+
+.homepage-title > div:nth-child(4) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) .6s, invisible 1.2s ease-out;
+}
+
+.homepage-title > div:nth-child(5) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) .7s, invisible 1.4s ease-out;
+}
+
+.homepage-title > div:nth-child(6) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) .8s, invisible 1.6s ease-out;
+}
+
+.homepage-title > div:nth-child(7) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) 1s, invisible 2.1s ease-out;
+}
+
+.homepage-title > div:nth-child(8) {
+    animation: moveRight var(--animation-time) var(--animation-cubic-bezier) 1.2s, invisible 2.3s ease-out;
+}
+
+@keyframes invisible {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-150vh);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+

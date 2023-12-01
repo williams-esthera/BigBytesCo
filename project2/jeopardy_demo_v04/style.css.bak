@@ -1,0 +1,112 @@
+:root{
+--black : #011627;
+--pink:  #FF3366;
+--green: #F6F7F8;
+--white: #2EC4B6;
+--blue: #20A4F3 ;
+
+}
+
+*{
+color: var(--white);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+background-color: var(--black);
+}
+
+table {
+    margin-top: 20px;
+}
+
+.flex-container{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+
+}
+
+.container {
+    max-width: 2000px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+
+/*
+div for both with flex = column,
+give second div different id and clear above div
+*/
+}
+
+.question {
+    font-size: xx-large;
+    margin-top: 20px;
+}
+
+.answer {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Style for buttons */
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--pink);
+    color: white;
+    border-radius: 5px;
+    height: 50px;
+    width: 120px;
+}
+
+/* Style for answer buttons */
+.answer-button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: limegreen;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.total-points {
+    margin-top: 20px;
+}
+
+/* Style for question buttons */
+.question-button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--green);
+    color: white;
+    border-radius: 5px;
+    height: 75px;
+    width: 200px;
+}
+
+
+
+/* Style for selected buttons */
+.selected-button {
+    background-color: gray; /* Change this to the desired color for selected buttons */
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    height: 75px;
+    width: 200px;
+}

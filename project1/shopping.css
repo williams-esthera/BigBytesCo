@@ -1,0 +1,108 @@
+
+
+#shoppingMain{
+    width: 90%;
+    margin: 5%;
+    height: 600px;
+    position:relative;
+   
+}
+
+.listSet{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    
+}
+
+.listSet > div{
+    margin: 10px;
+    padding: 5px;
+    height: auto;
+    width: 500px;
+    background-image: url(./images/notecardGreenOld.png);
+    background-size: cover;
+    opacity:.9;
+}
+
+.list{
+    flex: 25%;
+}
+
+.recipeTitle{
+    font-size:1em;
+    text-align: center;
+    margin-top:20px;
+}
+
+.ingredients{
+    margin-top:50px;
+}
+
+.ingredients  ol{
+    list-style:none;
+    font-size: 1.5em;
+    
+    
+}
+.ingredients ol li{
+    margin:25px;
+}
+
+
+.checkItem .img-clicked {
+	display: none;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 99;
+}
+
+.checkItem:hover .img-clicked{
+	display: inline;
+}
+
+
+.checkItem img{
+	height:30px;
+	width:30px;
+    float:right;
+}
+
+
+.checkItem{
+	height:30px;
+	width:30px;
+	position: relative;
+	display: inline-block;
+	margin: 0px;
+	
+}
+
+.checkItem .img-clicked {
+	display: none;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 99;
+}
+
+.checkItem:hover .img-clicked{
+	display: inline;
+}
+
+
+.checkItem img{
+	height:30px;
+	width:30px;
+    float:right;
+}
+
+:root {
+    --green1: #F5FBEF;
+    --green2: #92AD94;
+    --green3: #748B75;
+    --brown: #503D42; 
+    --testing: red;
+    --testing2: purple;
+}

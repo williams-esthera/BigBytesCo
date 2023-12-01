@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+table {
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 2000px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.question {
+    font-size: xx-large;
+    margin-top: 20px;
+}
+
+.answer {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Style for buttons */
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: cyan;
+    color: white;
+    border-radius: 5px;
+    height: 50px;
+    width: 120px; 
+}
+
+/* Style for answer buttons */
+.answer-button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: limegreen;
+    color: white;
+    border-radius: 5px;
+    width: 200px; 
+}
+
+.total-points {
+    margin-top: 20px;
+}
+
+/* Style for question buttons */
+.question-button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    height: 75px;
+    width: 200px; 
+}
+
+/* Style for selected buttons */
+.selected-button {
+    background-color: gray; /* Change this to the desired color for selected buttons */
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    height: 75px;
+    width: 200px;
+}

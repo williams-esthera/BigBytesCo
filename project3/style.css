@@ -1,0 +1,255 @@
+
+		:root{
+			--black : #0F110C;
+			--orange: #ED6A5A;
+			--yellow: #F4F1BB;
+			--brown: #B89E97;
+			--cream: #F7ECE1;
+			
+		}
+		
+		*{
+			color: var(--black);
+		}
+		
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: auto; 
+			margin: 0; 
+			font-family: Arial, sans-serif;
+			background-color: var(--black); 
+		}
+		
+		h1, h2, h3, p{
+			text-align: center;
+		}
+		
+		h1{
+			color: var(--yellow);
+		}
+  
+		button:hover{
+			cursor: pointer;
+		}
+		
+		dl{
+			display: inline-block;
+		}
+          
+        .center{
+            margin:auto;
+            width: 60%;
+        }
+		
+        .center2{
+            margin:auto;
+            width: 80%;
+        }
+    /* Styles for the puzzle container */
+        #puzzle-container {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(4, 1fr);
+			width: 400px; /* Puzzle size */
+			gap: 2px; /* Gap between tiles */
+			margin: auto; /* Center the puzzle container */
+			justify-content: center; /* Center horizontally */
+			align-items: center; /* Center vertically */
+        }
+
+    /*for individual puzzle tiles */
+        .puzzle-tile {
+            box-sizing: border-box;
+            border: 2px solid var black;
+            font-size: 32px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+			
+		
+        }
+
+    /*for empty tile */
+
+        .empty-tile {
+            cursor: default;
+            border: none;
+        }
+
+    /*Change shadow of tile when you are able to click on it*/
+        .clickable-tile:hover {
+            box-shadow: 0px 0px 2px 2px #111;
+            cursor: pointer;
+        }
+
+
+    /*Css for the pop up boxes*/
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top:0;
+            width:100%;
+            height:100%;
+            overflow: auto;
+            background-color: rgb(0,0,0,0.4); 
+        }
+		
+        .modal-background{
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #2c2525;
+            width: 80%;
+        }
+
+    /* The Close Button for popup box*/
+        .close {
+            color: black;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover, .close:focus {
+            color: white;
+            text-decoration:none;
+            cursor:pointer;
+        }
+
+     /*Used for background image selection and size selection*/
+        .flex-select{
+            display:flex;
+            flex-wrap: nowrap;
+        }
+
+        .flex-select > img{
+            margin: 10px;
+            height: 75px;
+            width: 75px;
+        }
+
+        .flex-select > button{
+            margin: 10px;
+            height: 50px;
+            width: 75px;
+        }
+
+        .background-option:hover{
+            box-shadow: 0px 0px 2px 2px #111;
+            cursor: pointer;
+        }
+
+/* Works on tile slide animation*/
+         .hovered {
+            transform: scaleX(1.1) scaleY(1.1);
+            transition: .25s ease-out;
+			animation: shake 0.5s;			
+         }
+		 
+
+         .hoveredAfter {
+            transform: scaleX(1) scaleY(1);
+            transition: .25s ease-out;
+			animation: drop-in 1000ms;	
+         }
+		 
+		 @keyframes shake {
+			  0% { transform: translate(1px, 1px) rotate(0deg); }
+			  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+			  20% { transform: translate(-3px, 0px) rotate(1deg); }
+			  30% { transform: translate(3px, 2px) rotate(0deg); }
+			  40% { transform: translate(1px, -1px) rotate(1deg); }
+			  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+			  60% { transform: translate(-3px, 1px) rotate(0deg); }
+			  70% { transform: translate(3px, 1px) rotate(-1deg); }
+			  80% { transform: translate(-1px, -1px) rotate(1deg); }
+			  90% { transform: translate(1px, 2px) rotate(0deg); }
+			  100% { transform: translate(1px, -2px) rotate(-1deg); }
+			}
+		@keyframes drop-in {
+    from {
+      transform:
+        rotate(-30deg) translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform:
+        rotate(0deg) translateY(0%);
+      opacity: 1;
+    }
+  }
+
+
+
+	
+        /*Used for3 buttons at the top*/
+        .flex-container{
+            display:flex;
+            flex-wrap: nowrap;
+        }
+        .flex-container > button{
+			border-radius: 10px;
+            width: 100px;
+            height: 50px;
+            margin-right: 25px;
+            margin-left: 25px;
+            width: 60%;
+			border: 2px solid var(--black);
+			
+        }
+		.flex-container > .links{
+            width: 100px;
+            height: 50px;
+            margin-right: 25px;
+            margin-left: 25px;
+        }
+         #shuffle-btn, #restart-btn{
+            margin: 20px;
+			padding: 20px;
+			border-radius: 5px;
+			border: 2px solid black;
+			font-size: 15px;
+         }
+
+
+	/*background-color class for buttons*/
+	.orange{
+		background-color: var(--orange);
+	}
+	.yellow{
+		background-color: var(--yellow);
+	}
+	.brown{
+		background-color: var(--brown);
+	}
+	
+	.bb{
+		border : 2px solid var(--black);
+	}
+	
+	.test{
+	 border: 2px dotted green;	
+	}
+	
+	#timer{
+		color: var(--yellow);
+	}
+	
+	#beginButton{
+		width: 60%;
+		margin: auto;
+	}
+	
+	#beginButton:hover{
+		transform: scaleX(1.1) scaleY(1.1);
+        transition: .25s ease-out;
+		animation: shake 0.5s;
+	}
+	

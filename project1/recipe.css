@@ -1,0 +1,196 @@
+
+:root {
+    --recipe-book-scale: 1.65;
+}
+
+/* Triangle */
+.triangle {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    z-index: 2;
+    position: relative;
+
+    animation: arrowDown 1.5s infinite normal;
+    
+   
+}
+
+.triangle > img {
+    position: absolute;
+    bottom: -60px;
+}
+
+
+@keyframes arrowDown {
+   from{
+        top: 0px;
+    }
+    to{
+        top:30px
+      } 
+
+}
+
+/* Recipe container */
+#recipe-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url("./images/defaultBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #FEFDFB;
+
+    z-index: -4;
+}
+
+/* Recipe book */
+.recipe-book {
+    /* background-image: url('./images/recipe_bookv2.PNG'); */
+    background-image: url('./recipeBookAnimation/cookbook.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: calc(930px * var(--recipe-book-scale)); /* 600*/
+    height: calc(560px * var(--recipe-book-scale)); /*336*/
+
+    margin-top: 100px;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.recipe-title {
+    margin-top: 50px;
+}
+
+.left-page {
+    padding-left: 275px; /*200*/
+}
+
+.right-page {
+    padding-right: 275px;
+}
+
+.recipe-top {
+    display: flex;
+}
+
+.recipe-title {
+    font-size: 28px;
+    max-width: 200px;
+    white-space: nowrap;
+}
+
+/* Recipe image */
+.recipe-image {
+    background-color: transparent;
+	width: 250px;
+	border: 1px ;
+	perspective: 1000px;
+	position: absolute;
+    margin-top: 12px;
+}
+
+.recipe-image > div {
+    width: 230px;
+    height: 175px;
+}
+
+.front > img {
+    width: 100%;
+    height: 100%;
+}
+
+.flipin {
+    position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.recipe-image:hover .flipin {
+	transform: rotateY(180deg);
+}
+
+.front, .back{
+	position: absolute;
+	color: black;
+    width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.front{
+	background-color: #bbb;
+	
+}
+
+.back{
+	/* background-color: dodgerblue; */
+	color: black;
+	transform: rotateY(180deg);
+    text-align: left;
+    
+}
+
+/* Steps */
+.recipe-steps {
+    margin-top: 215px; /*192*/
+    width: 400px;
+}
+
+.recipe-steps ol{
+    font-size: 1.2em;
+}
+
+#brownie-steps{
+    margin-top: 245px;
+}
+
+.stepsTitle{
+ 
+}
+
+.addToCartButton{
+	height:50px;
+	width:50px;
+	position: relative;
+	display: inline-block;
+	margin: 0px;
+	
+}
+
+.addToCartButton .img-clicked {
+	display: none;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 99;
+}
+
+.addToCartButton:hover .img-clicked{
+	display: inline;
+}
+
+
+.addToCartButton img{
+	height:50px;
+	width:50px;
+    float:right;
+}
+
+ul{
+    list-style: none
+}
