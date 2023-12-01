@@ -1,6 +1,12 @@
-// Constants for the puzzle size
-let currentBackgroundImage = './components/bg0.jpeg';
+// Variables for the puzzle size
+let currentBackgroundImage = sessionStorage.getItem("background");
+
+if(!currentBackgroundImage){	
+	sessionStorage.setItem("background", './components/bg0.jpeg');
+}
+
 let PUZZLE_SIZE = 4;
+
 const TILE_SIZE = 100;
 
 let timerInterval; // Variable to store the interval for the timer
@@ -35,8 +41,11 @@ function formatTime(seconds) {
 }
 
 function changeBackground(newBackgroundImage) {
+	//save background image to storage
+	sessionStorage.setItem("background",newBackgroundImage);
     // Update the current background image
- currentBackgroundImage = newBackgroundImage;
+	currentBackgroundImage = sessionStorage.getItem("background");
+
 
  // Get all elements with the class "puzzle-tile"
  const tiles = document.getElementsByClassName('puzzle-tile');
