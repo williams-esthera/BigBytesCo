@@ -1,6 +1,17 @@
-// Constants for the puzzle size
-let currentBackgroundImage = './components/bg0.jpeg';
-let PUZZLE_SIZE = 4;
+// Variables for the puzzle size
+let currentBackgroundImage = sessionStorage.getItem("background");
+
+if(!currentBackgroundImage){	
+	sessionStorage.setItem("background", './components/bg0.jpeg');
+}
+
+//let PUZZLE_SIZE = 4;
+let PUZZLE_SIZE = sessionStorage.getItem("size");
+
+if(!PUZZLE_SIZE){
+	sessionStorage.setItem("size",4);
+}
+
 const TILE_SIZE = 100;
 
 let timerInterval; // Variable to store the interval for the timer
@@ -35,8 +46,11 @@ function formatTime(seconds) {
 }
 
 function changeBackground(newBackgroundImage) {
+	//save background image to storage
+	sessionStorage.setItem("background",newBackgroundImage);
     // Update the current background image
- currentBackgroundImage = newBackgroundImage;
+	currentBackgroundImage = sessionStorage.getItem("background");
+
 
  // Get all elements with the class "puzzle-tile"
  const tiles = document.getElementsByClassName('puzzle-tile');
@@ -49,7 +63,9 @@ function changeBackground(newBackgroundImage) {
 
 // Function to change puzzle size
 function updateSize(newSize) {
-    PUZZLE_SIZE = newSize;
+    //PUZZLE_SIZE = newSize;
+	sessionStorage.setItem("size", newSize);
+	PUZZLE_SIZE = sessionStorage.getItem("size");
     generatePuzzle();
 }
 
@@ -288,7 +304,7 @@ document.getElementById('beginButton').addEventListener('click', handleBeginButt
 //generate the puzzle grid when the page loads
 window.addEventListener('load', generatePuzzle);
 
-/*Reset Game when you click reset button*/
+/*Onclick function for reset button */
 	let resetButton = document.getElementById("restart-btn");
 	
 	resetButton.onclick = function(){
