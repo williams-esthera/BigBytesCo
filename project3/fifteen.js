@@ -288,7 +288,7 @@ document.getElementById('beginButton').addEventListener('click', handleBeginButt
 //generate the puzzle grid when the page loads
 window.addEventListener('load', generatePuzzle);
 
-/*Reset Game when you click reset button*/
+/*Onclick function for reset button */
 	let resetButton = document.getElementById("restart-btn");
 	
 	resetButton.onclick = function(){
