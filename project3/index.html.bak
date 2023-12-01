@@ -13,7 +13,7 @@
 			<span>Fif</span><span>teen</span> <span>Puz</span><span>zle</span>
 		</h1>
 	</div> -->
-	
+
     <h1 >Fifteen Puzzle</h1>
     <div class = "flex-container center">
         <button id = "rulesButton" class = "orange bb">Rules</button>
@@ -24,8 +24,9 @@
 		<p style = "color: var(--yellow); font-size: 20px;">Timer: 
 			<span id="timer">00:00</span>
 		</p>
+		
 	</div>
-    
+   
     <div id="puzzle-container">
         <!-- Puzzle will go here -->
     </div>
@@ -37,7 +38,7 @@
         <a href="link_to_W3C_validator"><img src="" alt="W3C Validator"></a>
         <a href="link_to_JSLint"><img src="" alt="JSLint"></a>
     </p>
-	
+
 
     <!-- Code for Modal Pop-Up Box-->
     <!-- Rules-->
@@ -95,17 +96,17 @@
 					<br>
 					<dl>
 						<dt>Douglas H-Ortiz</dt>
-							<dd>Lead Programmer</dd>
+						<dd>Lead Programmer</dd>
 						<dt>Zainab Sirajo</dt>
-							<dd>Front-End/Back-End Programmer</dd>
+						<dd>Programmer</dd>
 						<dt>Andy Ha</dt>
-							<dd>Back-End Programmer, Debugger</dd>
+						<dd>Programmer</dd>
 						<dt>Derrick Mason Jr.</dt>
-							<dd>Front-End Programmer</dd>
+						<dd>Programmer</dd>
 						<dt>Joshua Pauldin</dt>
-							<dd>Front-End/Back-End Programmer</dd>
+						<dd>Programmer</dd>
 						<dt>Esther Williams</dt>
-							<dd>Team Lead, Designer, Front-End</dd>
+						<dd>Team Lead, Designer, Debugger</dd>
 					</dl>
 				</p>
 				<div class = "references">
