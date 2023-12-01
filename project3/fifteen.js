@@ -5,7 +5,12 @@ if(!currentBackgroundImage){
 	sessionStorage.setItem("background", './components/bg0.jpeg');
 }
 
-let PUZZLE_SIZE = 4;
+//let PUZZLE_SIZE = 4;
+let PUZZLE_SIZE = sessionStorage.getItem("size");
+
+if(!PUZZLE_SIZE){
+	sessionStorage.setItem("size",4);
+}
 
 const TILE_SIZE = 100;
 
@@ -58,7 +63,9 @@ function changeBackground(newBackgroundImage) {
 
 // Function to change puzzle size
 function updateSize(newSize) {
-    PUZZLE_SIZE = newSize;
+    //PUZZLE_SIZE = newSize;
+	sessionStorage.setItem("size", newSize);
+	PUZZLE_SIZE = sessionStorage.getItem("size");
     generatePuzzle();
 }
 
