@@ -1,17 +1,6 @@
-// Variables for the puzzle size
-let currentBackgroundImage = sessionStorage.getItem("background");
-
-if(!currentBackgroundImage){	
-	sessionStorage.setItem("background", './components/bg0.jpeg');
-}
-
-//let PUZZLE_SIZE = 4;
-let PUZZLE_SIZE = sessionStorage.getItem("size");
-
-if(!PUZZLE_SIZE){
-	sessionStorage.setItem("size",4);
-}
-
+// Constants for the puzzle size
+let currentBackgroundImage = './components/bg0.jpeg';
+let PUZZLE_SIZE = 4;
 const TILE_SIZE = 100;
 
 let timerInterval; // Variable to store the interval for the timer
@@ -41,16 +30,15 @@ function formatTime(seconds) {
 
     // Update the #timer element with the formatted time
     document.getElementById('timer').textContent = formattedTime;
+    document.getElementById('winTimer').textContent = formattedTime;
+
 
     return formattedTime;
 }
 
 function changeBackground(newBackgroundImage) {
-	//save background image to storage
-	sessionStorage.setItem("background",newBackgroundImage);
     // Update the current background image
-	currentBackgroundImage = sessionStorage.getItem("background");
-
+ currentBackgroundImage = newBackgroundImage;
 
  // Get all elements with the class "puzzle-tile"
  const tiles = document.getElementsByClassName('puzzle-tile');
@@ -63,9 +51,7 @@ function changeBackground(newBackgroundImage) {
 
 // Function to change puzzle size
 function updateSize(newSize) {
-    //PUZZLE_SIZE = newSize;
-	sessionStorage.setItem("size", newSize);
-	PUZZLE_SIZE = sessionStorage.getItem("size");
+    PUZZLE_SIZE = newSize;
     generatePuzzle();
 }
 
@@ -125,6 +111,7 @@ function areTilesAdjacent(tile1, tile2) {
 }
 
 function isPuzzleSolved() {
+    return true;
     const tiles = document.querySelectorAll('.puzzle-tile:not(.empty-tile)');
     for (let i = 0; i < tiles.length; i++) {
         const correctRow = Math.floor(i / PUZZLE_SIZE) + 1;
@@ -166,9 +153,27 @@ function handleTileClick() {
         if (isPuzzleSolved()) {
             // Puzzle is solved
             stopTimer(); // Stop the timer when the puzzle is solved
-            alert(`Congratulations! You solved the puzzle in ${formatTime(seconds)}!`);
+            displayMessage();
         }
     }
+}
+
+function displayMessage() {
+    document.getElementById('messageContainer').style.display = 'block';
+
+    /*// Create a new paragraph element
+    var winTime = document.createElement('p');
+
+    // Set the content of the paragraph
+    winTime.textContent = winTimer;
+
+    // Append the paragraph to the message container
+    messageContainer.appendChild(winTime);*/
+}
+
+// Function to close the winning message popup
+function closeWinningMessage() {
+    document.getElementById('messageContainer').style.display = 'none';
 }
 
 function handleTileHover() {
@@ -304,7 +309,7 @@ document.getElementById('beginButton').addEventListener('click', handleBeginButt
 //generate the puzzle grid when the page loads
 window.addEventListener('load', generatePuzzle);
 
-/*Onclick function for reset button */
+/*Reset Game when you click reset button*/
 	let resetButton = document.getElementById("restart-btn");
 	
 	resetButton.onclick = function(){

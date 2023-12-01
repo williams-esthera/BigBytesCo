@@ -17,14 +17,14 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			height: auto; 
+			height: 100vh; 
 			margin: 0; 
 			font-family: Arial, sans-serif;
 			background-color: var(--black); 
 		}
-		
 		h1, h2, h3, p{
 			text-align: center;
+            color: white;
 		}
 		
 		h1{
@@ -150,14 +150,14 @@
          .hovered {
             transform: scaleX(1.1) scaleY(1.1);
             transition: .25s ease-out;
-			animation: shake 0.5s;			
+
+			animation: shake 0.5s;
          }
 		 
 
          .hoveredAfter {
             transform: scaleX(1) scaleY(1);
             transition: .25s ease-out;
-			animation: drop-in 1000ms;	
          }
 		 
 		 @keyframes shake {
@@ -173,18 +173,6 @@
 			  90% { transform: translate(1px, 2px) rotate(0deg); }
 			  100% { transform: translate(1px, -2px) rotate(-1deg); }
 			}
-		@keyframes drop-in {
-    from {
-      transform:
-        rotate(-30deg) translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform:
-        rotate(0deg) translateY(0%);
-      opacity: 1;
-    }
-  }
 
 
 
@@ -252,4 +240,19 @@
         transition: .25s ease-out;
 		animation: shake 0.5s;
 	}
+
+    #messageContainer{
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #E97451;
+        border: 2px solid #333;
+        border-radius: 25px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+	
 	

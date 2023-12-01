@@ -13,9 +13,17 @@
 			<span>Fif</span><span>teen</span> <span>Puz</span><span>zle</span>
 		</h1>
 	</div> -->
-	
+
     <h1 >Fifteen Puzzle</h1>
     <div class = "flex-container center">
+		<!--Display win message, hidden until activated-->
+		<div id="messageContainer">
+			<h2>Congratulations! You completed the puzzle in <span id="winTimer">00:00</span>minutes!</h2>
+			<p>Awesome job!</p>
+			<img src="cat.png" alt="cat win message" width="190" height="190">
+			<br>
+			<button onclick="closeWinningMessage()">Close</button>
+		</div>
         <button id = "rulesButton" class = "orange bb">Rules</button>
         <button id = "startButton" class = "yellow bb">Start Game</button>
         <button id = "aboutButton" class = "brown bb">About</button>
@@ -24,8 +32,9 @@
 		<p style = "color: var(--yellow); font-size: 20px;">Timer: 
 			<span id="timer">00:00</span>
 		</p>
+		
 	</div>
-    
+   
     <div id="puzzle-container">
         <!-- Puzzle will go here -->
     </div>
@@ -37,7 +46,6 @@
         <a href="link_to_W3C_validator"><img src="" alt="W3C Validator"></a>
         <a href="link_to_JSLint"><img src="" alt="JSLint"></a>
     </p>
-	
 
     <!-- Code for Modal Pop-Up Box-->
     <!-- Rules-->
@@ -120,6 +128,8 @@
 			</div>
         </div>
     </div>
+
+	
 
     <script src="fifteen.js"></script>
 </body>
