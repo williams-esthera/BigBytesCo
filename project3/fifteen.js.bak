@@ -290,10 +290,6 @@ window.addEventListener('load', generatePuzzle);
 
 /*Reset Game when you click reset button*/
 	let resetButton = document.getElementById("restart-btn");
-	
-	resetButton.onclick = function(){
-		window.location.reload();
-	}
 
 
 /* Code for PopUp Boxes for rules, start game */
