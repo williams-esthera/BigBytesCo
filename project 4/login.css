@@ -1,0 +1,125 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+.login-container, .registration-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.login-buttons, .registration-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 10px;
+}
+
+.login-buttons button, .registration-buttons button {
+    margin: 0;
+    padding: 10px;
+    width: 120px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-buttons button:nth-child(1), .registration-buttons button:nth-child(1) {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.login-buttons button:nth-child(2), .registration-buttons button:nth-child(2) {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.login-buttons button:nth-child(3), .registration-buttons button:nth-child(3) {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.login-buttons button:nth-child(1):hover,
+.login-buttons button:nth-child(2):hover,
+.login-buttons button:nth-child(3):hover,
+.registration-buttons button:nth-child(1):hover,
+.registration-buttons button:nth-child(2):hover,
+.registration-buttons button:nth-child(3):hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.login-box,.registration-box {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 2;
+    margin-left: -10px;
+}
+
+.login-box form,.registration-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"],
+.login-box input[type="submit"],
+.registration-box input[type="email"],
+.registration-box input[type="password"],
+.registration-box input[type="submit"],
+.registration-box input[type="text"],
+.registration-box input[type="number"]
+{
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-box input[type="email"]::placeholder,
+.login-box input[type="password"]::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.login-text, .registration-text {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.forgot-password {
+    text-align: center;
+}
+
+.forgot-password a {
+    color: #a6b3c0;
+    text-decoration: none;
+}
+
+.login-box input[type="submit"],.registration-box input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-box input[type="submit"]:hover, .registration-box input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+#sellerQuestions{
+    display: none;
+}

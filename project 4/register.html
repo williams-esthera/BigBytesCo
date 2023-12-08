@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Page</title>
+<link href = "login.css" rel = "stylesheet">
+</head>
+
+<body>
+    <div class="registration-container">
+        <div class="registration-buttons">
+            <button onClick = "location.href ='login.html'">Login</button>
+            <button onClick = "location.href ='register.html'">Register</button>
+            <button>Forgot Password</button>
+        </div>
+        <div class="registration-box">
+            <div class="registration-text">Register here:</div>
+            <form method = "POST" action = "process_registration.php">
+                <input type = "text" id = "fname" name ="fname" 
+                 placeholder="First Name">
+                 <input type = "text" id = "lname" name ="lname" 
+                 placeholder="Last Name">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <!-- Ask if they are a property seller
+                <input type = "checkbox" id = "is_selling" name = "is_selling" value = "selling">
+                <label for = "is_selling">I am a property Seller</label>
+                <div id ="sellerQuestions">
+                <input type = "number" id = "phone_number" name = "phone_number" value ="phone_number" placeholder ="000 000 0000">
+                
+                </div> -->
+
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</body>
+
+
+
+
+</html>
