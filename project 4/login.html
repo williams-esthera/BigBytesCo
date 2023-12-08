@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel ="stylesheet" href = "login.css"/>
+   
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-buttons">
+            <button>Login</button>
+            <button onClick = "location.href ='register.html'">Register</button>
+            <button>Forgot Password</button>
+        </div>
+        <div class="login-box">
+            <div class="login-text">Login here:</div>
+            <form method = "POST" action = "process_login.php">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
