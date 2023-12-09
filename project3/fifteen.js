@@ -41,6 +41,8 @@ function formatTime(seconds) {
 
     // Update the #timer element with the formatted time
     document.getElementById('timer').textContent = formattedTime;
+document.getElementById('winTimer').textContent = formattedTime;
+
 
     return formattedTime;
 }
@@ -166,11 +168,29 @@ function handleTileClick() {
         if (isPuzzleSolved()) {
             // Puzzle is solved
             stopTimer(); // Stop the timer when the puzzle is solved
-            alert(`Congratulations! You solved the puzzle in ${formatTime(seconds)}!`);
+            displayMessage();
         }
     }
 }
 
+function displayMessage() {
+    document.getElementById('messageContainer').style.display = 'block';
+
+    /*// Create a new paragraph element
+    var winTime = document.createElement('p');
+
+    // Set the content of the paragraph
+    winTime.textContent = winTimer;
+
+    // Append the paragraph to the message container
+    messageContainer.appendChild(winTime);*/
+}
+
+// Function to close the winning message popup
+function closeWinningMessage() {
+    document.getElementById('messageContainer').style.display = 'none';
+}
+    
 function handleTileHover() {
     const hoveredTile = this;
     const emptyTile = document.querySelector('.empty-tile');

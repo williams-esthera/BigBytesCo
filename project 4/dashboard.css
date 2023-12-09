@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+
+
+a {
+    color: black;
+    text-decoration: none; 
+    transition: box-shadow 0.3s ease;
+}
+
+a:hover {
+    color: black; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+a:visited {
+    color: black; /* Set the color for visited links */
+}
+
+form {
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+input {
+    width: 950px;
+    height: 40px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db; /* Border color */
+    color: #3498db; /* Text color */
+    background-color: #ffffff; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.property-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    
+   
+}
+
+
+.property-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.property-card h2 {
+    margin-top: 0;
+}
+
+
+
+
