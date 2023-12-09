@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 
         // Display detailed information about the property
         echo '<div class="property-details">';
-        echo '<img src="' . $row['imagePath'] . '" alt="' . $row['propertyName'] . '">';
+        echo '<img src="images/' . $row['imagePath'] . '" alt="' . $row['propertyName'] . '">';
         echo '<h2>' . $row['propertyName'] . '</h2>';
         echo '<p>Bedrooms: ' . $row['bedrooms'] . '</p>';
         echo '<p>Bathrooms: ' . $row['bathrooms'] . '</p>';

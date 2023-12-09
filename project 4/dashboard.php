@@ -17,6 +17,7 @@
     <button type="submit">Search</button>
 </form>
 
+<br>
 
 <?php
 session_start();
@@ -92,7 +93,7 @@ if($conn->query($insertDataSql) === TRUE) {
         while ($row = $result->fetch_assoc()) {
             
                 echo '<a href="property_details.php?id=' . $row['id'] . '" class="property-card">';
-                echo '<img src="' . $row['imagePath'] . '" alt="' . $row['propertyName'] . '">';
+                echo '<img src="images/' . $row['imagePath'] . '" alt="' . $row['propertyName'] . '">';
                 echo '<h2>' . $row['propertyName'] . '</h2>';
                 echo '<p>Type: ' . $row['propertyType'] . '</p>';
                 echo '<p>Bedrooms: ' . $row['bedrooms'] . '</p>';
