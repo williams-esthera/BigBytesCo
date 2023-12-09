@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php 
+        require_once(__DIR__.'/connection.php');
         ini_set('display_errors', 1);
         error_reporting(E_ALL);
 
@@ -18,12 +19,13 @@
         }
 
 
-        define("DB_NAME","ewilliams153");
-        define("DB_USER","ewilliams153");
-        define("DB_PASSWORD","ewilliams153");
-        define("DB_HOST","localhost");
+        // define("DB_NAME","ewilliams153");
+        // define("DB_USER","ewilliams153");
+        // define("DB_PASSWORD","ewilliams153");
+        // define("DB_HOST","localhost");
 
-        $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+        // $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+        $conn = getConnection();
         $username = $_POST["email"];
         $password = $_POST["password"];
         $fname = $_POST["fname"];

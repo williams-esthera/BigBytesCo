@@ -10,6 +10,7 @@
 
 
 <a href="propertyCards.php"><h1>Buyer Dashboard</h1></a>
+<a href='./wishlist.php'>Wishlist</a>
 
 <!-- Search Form -->
 <form method="GET" action="">
@@ -24,21 +25,9 @@ session_start();
 $user_id = $_SESSION["user_id"];
 echo "<h2>Welcome: $user_id</h2>" ;
 
-
-
-$host = "localhost";
-$user = "zsirajo1";
-$pass = "zsirajo1";
-$dbname = "zsirajo1";
-
-
+require_once(__DIR__.'/connection.php');
 // Create Connection
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+$conn = getConnection();
 
 $createTableSql = "CREATE TABLE IF NOT EXISTS properties (
     id INT PRIMARY KEY,
@@ -51,6 +40,8 @@ $createTableSql = "CREATE TABLE IF NOT EXISTS properties (
     imagePath VARCHAR(255),
     description TEXT
 )";
+
+runQuery($createTableSql);
 
 // Check if a search query is provided
 $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
