@@ -18,10 +18,14 @@
         }
 
 
-        define("DB_NAME","ewilliams153");
-        define("DB_USER","ewilliams153");
-        define("DB_PASSWORD","ewilliams153");
-        define("DB_HOST","localhost");
+        // define("DB_NAME","ewilliams153");
+        // define("DB_USER","ewilliams153");
+        // define("DB_PASSWORD","ewilliams153");
+        // define("DB_HOST","localhost");
+        define("DB_NAME","property");
+        define("DB_USER","root");
+        define("DB_PASSWORD","password");
+        define("DB_HOST","172.17.0.2");
 
         $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
         $username = $_POST["email"];
