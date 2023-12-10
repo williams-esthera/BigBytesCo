@@ -10,29 +10,105 @@
         <div class="registration-buttons">
             <button onClick = "location.href ='login.html'">Login</button>
             <button onClick = "location.href ='register.html'">Register</button>
-            <button>Forgot Password</button>
         </div>
         <div class="registration-box">
             <div class="registration-text">Register here:</div>
             <form method = "POST" action = "process_registration.php">
-                <input type = "text" id = "fname" name ="fname" 
-                 placeholder="First Name">
-                 <input type = "text" id = "lname" name ="lname" 
-                 placeholder="Last Name">
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <!-- Ask if they are a property seller
-                <input type = "checkbox" id = "is_selling" name = "is_selling" value = "selling">
-                <label for = "is_selling">I am a property Seller</label>
-                <div id ="sellerQuestions">
-                <input type = "number" id = "phone_number" name = "phone_number" value ="phone_number" placeholder ="000 000 0000">
-                
-                </div> -->
+                <h4>Select Account Type</h4>
+                <div class = "flex-container">
+                    <input type ="radio" id="buyer" onchange = "buyerRegistration(this)" name ="user-type" value ="buyer" checked/>
+                    <label for ="buyer" >Buyer</label>
+                </div>
+                <div class = "flex-container">
+                    <input type ="radio" id="seller" onchange = "sellerRegistration(this)" name ="user-type" value ="seller"/>
+                    <label for ="seller">Seller</label>
+                </div>
 
+                <div class = "flex-container">
+                    <input type ="radio" id="admin" onchange = "adminRegistration(this)" name ="user-type" value ="admin"/>
+                    <label for = "admin">Admin</label>
+                </div>
+
+                <h4>Basic User Info</h4>
+                <input type = "text" id = "fname" name ="fname" placeholder="First Name" required>
+                 <input type = "text" id = "lname" name ="lname" placeholder="Last Name" required>
+                <!-- Update the ID attributes for email and password fields -->
+                <h4 id ="adminMessage" style = "display: none;" >Make sure to use @admin email if you're admin</h4>
+                <input type="email" id="reg_email" name="email" placeholder="Email" required>
+                <input type="password" id="reg_password" name="password" placeholder="Password" required>
+
+<!--Ask for Phone number-->
+                <div id = "phoneDiv" style = "display:block;">
+                    <h4>Extra Contant Information</h4>  
+                    <Label for = "phone_number">Phone Number</Label>
+                    <input type = "number" id = "phone_number" name = "phone_number" value ="phone_number" pattern="\d{10}" placeholder ="000-000-0000">
+                </div>
+<!--Seller Specific Questions-->
+                <div id ="sellerDiv" style ="display:none;">
+                    <h4>Extra Seller Information</h4>
+                    <Label for ="property_type">What type of properties are you selling<br> Ctr + click for multiple</Label>
+                    <select name = "property_type[]" id ="property_type" multiple >
+                        <option value = "single_family_home">Single Family Home</option>
+                        <option value = "apartment" >Apartment</option>
+                        <option value = "condo" >Condo</option>
+                        <option value = "townhouse" >Townhouse</option>
+                        <option value = "duplex_triplix" >Duplex/Triplex </option>
+                        <option value ="other">Other</option>
+                    </select>
+                    <br>
+                </div>
+                <div id ="adminDiv" style ="display:none;">
+                    <h4>Extra Admin information</h4>
+                    <label for = "company_id">Company ID</label>
+                    <input type ="number" id ="company_id" name = "company_id" pattern="\d{6}"placeholder ="000 0000">
+                    <br>
+                </div>
+                <br>
                 <input type="submit" value="Register">
             </form>
         </div>
     </div>
+
+    <script>
+        function buyerRegistration(type){
+            if(type.checked){
+            document.getElementById("phoneDiv").style.display = "block";
+            document.getElementById("sellerDiv").style.display = "none";
+            document.getElementById("adminDiv").style.display = "none";
+            document.getElementById("phone_number").required = true;
+            document.getElementById("property_type").required = false;
+            document.getElementById("company_id").required = false;
+            }
+    }
+
+        function sellerRegistration(type){
+            if(type.checked){
+            document.getElementById("phoneDiv").style.display = "block";
+            document.getElementById("phoneDiv").required = true;
+            document.getElementById("sellerDiv").style.display = "block";
+            document.getElementById("adminDiv").style.display = "none";
+            document.getElementById("phone_number").required = true;
+            document.getElementById("property_type").required = true;
+            document.getElementById("company_id").required = false;
+            }
+    }
+        
+
+        function adminRegistration(type){
+            if(type.checked){
+            document.getElementById("phoneDiv").style.display = "none";
+            document.getElementById("phoneDiv").required = false;
+            document.getElementById("sellerDiv").style.display = "none";
+            document.getElementById("adminDiv").style.display = "block";
+            document.getElementById("phone_number").required = false;
+            document.getElementById("property_type").required = false;
+            document.getElementById("company_id").required = true;
+            }
+    }
+
+   
+
+    </script>
 </body>
 
 
