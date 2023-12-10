@@ -4,29 +4,175 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
-    <link rel ="stylesheet" href = "login.css"/>
-   
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        .login-container {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .login-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-right: 10px;
+        }
+
+        .login-buttons button {
+            margin: 0;
+            padding: 10px;
+            width: 120px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            flex-grow: 1;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .login-buttons button:nth-child(1),
+        .login-buttons button:nth-child(2),
+        .login-buttons button:nth-child(3) {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+
+        .login-buttons button:nth-child(1):hover,
+        .login-buttons button:nth-child(2):hover,
+        .login-buttons button:nth-child(3):hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .login-box {
+            height: 250px;
+            width: 400px;
+            overflow: hidden;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            margin-left: -10px;
+        }
+
+        .login-box form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-box input[type="email"],
+        .login-box input[type="password"],
+        .login-box input[type="submit"],
+        .login-box input[type="text"] {
+            width: 70%;
+            margin-left: 50px;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-box input[type="email"]::placeholder,
+        .login-box input[type="password"]::placeholder,
+        .login-box input[type="text"]::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .login-text {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .forgot-password {
+            text-align: center;
+        }
+
+        .forgot-password a {
+            color: #a6b3c0;
+            text-decoration: none;
+        }
+
+        .login-box input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .login-box input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 
 <body>
     <div class="login-container">
         <div class="login-buttons">
-            <button>Login</button>
-            <button onClick = "location.href ='register.html'">Register</button>
-            <button>Forgot Password</button>
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showRegister()">Register</button>
+            <button onclick="showForgotPassword()">Forgot Password</button>
         </div>
-        <div class="login-box">
-            <div class="login-text">Login here:</div>
-            <form method = "POST" action = "process_login.php">
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+        <div class="login-box" id="loginBox">
+            <div class="login-text" id="loginHeaderText">Login here:</div>
+            <form id="loginForm" style="display: block;" action="login_process.php" method="POST">
+                <input type="email" id="login_email" name="email" placeholder="Email" required>
+                <input type="password" id="login_password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login">
             </form>
-            <div class="forgot-password">
-                <a href="#">Forgot Password?</a>
+            <div id="registerForm" style="display: none;">
+                <p>Don't have an account? Register for a new one here.</p>
+                <button onclick='location.href="register.html"'>Continue</button>
+            </div>
+            <div id="forgotPasswordForm" style="display: none;">
+                <p>Enter the email address associated with your account.</p>
+                <input type="email" id="forgotEmail" name="email" placeholder="Email" required>
+                <input type="submit" value="Continue">
+            </div>
+            <div class="forgot-password" id="forgotPasswordLink">
+                <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
             </div>
         </div>
     </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+            document.getElementById('forgotPasswordLink').style.display = 'block';
+            document.getElementById('loginHeaderText').innerText = 'Login here:';
+        }
+
+        function showRegister() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+            document.getElementById('forgotPasswordLink').style.display = 'none';
+            document.getElementById('loginHeaderText').innerText = 'Register a new account:';
+        }
+
+        function showForgotPassword() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'block';
+            document.getElementById('forgotPasswordLink').style.display = 'none';
+            document.getElementById('loginHeaderText').innerText = 'Password Assistance:';
+        }
+    </script>
 </body>
 
 </html>
