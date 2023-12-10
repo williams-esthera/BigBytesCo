@@ -52,7 +52,7 @@ body {
 .registration-buttons button:nth-child(1):hover,
 .registration-buttons button:nth-child(2):hover,
 .registration-buttons button:nth-child(3):hover {
-    background-color: #28a745;
+    background-color: tan;
     color: white;
 }
 
@@ -111,13 +111,13 @@ body {
 }
 
 .login-box input[type="submit"],.registration-box input[type="submit"] {
-    background-color: #28a745;
+    background-color: tan;
     color: white;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .login-box input[type="submit"]:hover, .registration-box input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: tan;
 }
 
 #sellerQuestions{

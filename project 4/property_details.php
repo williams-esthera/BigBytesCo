@@ -6,6 +6,31 @@
     <link rel="stylesheet" href="styles.css">
     <title>Property Details</title>
 </head>
+<style>
+    .property-details {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    }
+
+    img {
+    max-width: 100%;
+    max-height:100%;
+    }
+
+    .text {
+    font-size: 27px;
+    padding-left: 20px;
+    }
+
+    .wishlist{
+        border-radius: 15%;
+        background-color: tan;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+    }
+</style>
 <body>
 
 <?php
@@ -51,19 +76,21 @@ if (isset($_GET['id']) || isset($_POST['propertyId'])) {
         
         // Display detailed information about the property
         echo '<div class="property-details">';
+        echo '<div class="image">';
         echo '<img src="images/' . $row['imagePath'] . '" alt="' . $row['propertyName'] . '">';
+        echo "<form method='post' action='./property_details.php'>";
+        echo "<input type='hidden' value='$propertyId' name='propertyId' />";
+        echo "<button class='wishlist' type='submit'>$buttonText</button>";
+        echo "</form>";
+        echo '</div>';
+        echo '<div class="text">';
         echo '<h2>' . $row['propertyName'] . '</h2>';
         echo '<p>Bedrooms: ' . $row['bedrooms'] . '</p>';
         echo '<p>Bathrooms: ' . $row['bathrooms'] . '</p>';
         echo '<p>Square Footage: ' . $row['squareFootage'] . ' sqft</p>';
         echo '<p>Price: $' . number_format($row['price'], 2) . '</p>';
         echo '<p>' . $row['description'] . '</p>';
-
-        echo "<form method='post' action='./property_details.php'>";
-        echo "<input type='hidden' value='$propertyId' name='propertyId' />";
-        echo "<button type='submit'>$buttonText</button>";
-        echo "</form>";
-        
+        echo '</div>';
         echo '</div>';
     } else {
         echo "Property not found.";

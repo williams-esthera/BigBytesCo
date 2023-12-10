@@ -48,7 +48,7 @@
         .login-buttons button:nth-child(1):hover,
         .login-buttons button:nth-child(2):hover,
         .login-buttons button:nth-child(3):hover {
-            background-color: #28a745;
+            background-color: tan;
             color: white;
         }
 
@@ -98,23 +98,24 @@
             font-weight: bold;
         }
 
-        .forgot-password {
+        .forgot-password, .go-home {
             text-align: center;
         }
 
-        .forgot-password a {
+        .forgot-password a ,.go-home a{
             color: #a6b3c0;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .login-box input[type="submit"] {
-            background-color: #28a745;
+            background-color: tan;
             color: white;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .login-box input[type="submit"]:hover {
-            background-color: #218838;
+            background-color: tan;
         }
     </style>
 </head>
@@ -145,6 +146,10 @@
             <div class="forgot-password" id="forgotPasswordLink">
                 <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
             </div>
+            <div class="go-home" id="homeLink">
+                <br>
+                <a onClick = "location.href ='home.html'">Go Back Home</button>
+            </div>
         </div>
     </div>
 
@@ -155,6 +160,7 @@
             document.getElementById('forgotPasswordForm').style.display = 'none';
             document.getElementById('forgotPasswordLink').style.display = 'block';
             document.getElementById('loginHeaderText').innerText = 'Login here:';
+            document.getElementById('homeLink').style.display = 'block';
         }
 
         function showRegister() {
@@ -163,6 +169,7 @@
             document.getElementById('forgotPasswordForm').style.display = 'none';
             document.getElementById('forgotPasswordLink').style.display = 'none';
             document.getElementById('loginHeaderText').innerText = 'Register a new account:';
+            document.getElementById('homeLink').style.display = 'block';
         }
 
         function showForgotPassword() {
@@ -171,6 +178,7 @@
             document.getElementById('forgotPasswordForm').style.display = 'block';
             document.getElementById('forgotPasswordLink').style.display = 'none';
             document.getElementById('loginHeaderText').innerText = 'Password Assistance:';
+            document.getElementById('homeLink').style.display = 'block';
         }
     </script>
 </body>
