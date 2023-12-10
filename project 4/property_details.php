@@ -35,7 +35,7 @@ if (isset($_GET['id']) || isset($_POST['propertyId'])) {
         if($results == NULL) {
             runQuery("
             INSERT INTO wishlists (id, user_id)
-            VALUES ($propertyId, $userId);
+            VALUES ('$propertyId', '$userId');
             ");
             $buttonText = 'Remove from wishlist';
         } else {
@@ -45,8 +45,6 @@ if (isset($_GET['id']) || isset($_POST['propertyId'])) {
             $buttonText = 'Add to wishlist';
         }
     }
-
-    
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();

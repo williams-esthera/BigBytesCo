@@ -31,14 +31,9 @@
         <h1>Your wishlist</h1>
 
         <?php 
-        // Fetches user id
-        $username = $_SESSION["email"];
-        $userQuery = runQuery("SELECT username, id FROM accounts WHERE username = '$username';");
-        $userData = $userQuery -> fetch_assoc();
-        error_log(implode(", ", $userData));
 
         // Uses user id to fetch their wishlist
-        $userId = $userData['id'];
+        $userId = $_SESSION['id'];
         $wishlistQuery = runQuery("SELECT * FROM wishlists WHERE user_id = '$userId';");
 
         $propertyIdToRemove = $_POST['propertyId'];
