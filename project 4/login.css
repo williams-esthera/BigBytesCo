@@ -123,3 +123,8 @@ body {
 #sellerQuestions{
     display: none;
 }
+
+.flex-container{
+display: flex;
+flex-wrap:nowrap;
+}
