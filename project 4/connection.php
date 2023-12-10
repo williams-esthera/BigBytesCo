@@ -1,10 +1,10 @@
 <?php 
 
 // Config
-$host = "172.17.0.2:3306";
-$user = "root";
-$pass = "password";
-$dbname = "property";
+$host = "localhost";
+$user = "ewilliams153";
+$pass = "ewilliams153";
+$dbname = "ewilliams153";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 

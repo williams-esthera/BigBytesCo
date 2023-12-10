@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css">
     <title>Property Listings</title>
+
+    <style>
+          header {
+            width:100%;
+            height: 10vh; /* Set the height to 20% of the viewport height */
+            background-color: #333; /* Add your preferred background color */
+            color: #fff; /* Add your preferred text color */
+            text-align: right; /* Center the content */
+            padding: 10px; /* Add padding as needed */
+            display:flex;
+        }
+        #logout{
+            width: 100px;
+            height:50px;
+        }
+        button{
+            width:100px;
+            height:50px;
+        }
+
+    </style>
 </head>
+
+<header>
+            
+            <form action="logout.php" method="POST" >
+           <input type="submit" value="Logout" id ="logout">
+            </form> 
+            <!--<a href="propertyCards.php"><h1>Buyer Dashboard</h1></a>-->
+            <button><a href='./wishlist.php'>Wishlist</a></button>
+            <button><a href ="home.html">Home</a></button>
+</header>
 <body>
 
-
-<a href="propertyCards.php"><h1>Buyer Dashboard</h1></a>
-<a href='./wishlist.php'>Wishlist</a>
 
 <!-- Search Form -->
 <form method="GET" action="">
@@ -22,8 +50,20 @@
 
 <?php
 session_start();
-$user_id = $_SESSION["user_id"];
-echo "<h2>Welcome: $user_id</h2>" ;
+/*$user_id = $_SESSION["user_id"];
+echo "<h2>Welcome: $user_id</h2>" ;*/
+
+    // Check if the user is logged in
+    if(isset($_SESSION['user_id'])) {
+        // Display user's first and last name
+        echo "<p>Welcome, ".$_SESSION['firstName']." ".$_SESSION['lastName']."</p>";
+        //Display User Type
+        echo "This is a " . $_SESSION['userType'].  " account";
+    } else {
+        // If user is not logged in, redirect to login page
+        header("Location: login.html");
+        exit;
+    }
 
 require_once(__DIR__.'/connection.php');
 // Create Connection
