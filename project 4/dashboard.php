@@ -9,11 +9,11 @@
 <body>
 
 
-<a href="propertyCards.php"><h1>Buyer Dashboard</h1></a>
+<a href="dashboard.php"><h1>Buyer Dashboard</h1></a>
 
 <!-- Search Form -->
 <form method="GET" action="">
-    <input type="text" name="search" placeholder="Search by property name, type, description, or square footage">
+    <input type="text" name="search" placeholder="Search by property name, type, or square footage">
     <button type="submit">Search</button>
 </form>
 
