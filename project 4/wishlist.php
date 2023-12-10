@@ -14,15 +14,15 @@
     require_once(__DIR__.'/connection.php');
     $conn = getConnection();
 
-    runQuery("
-    CREATE TABLE IF NOT EXISTS wishlists (
+
+    runQuery("CREATE TABLE IF NOT EXISTS wishlists (
         wishlist_id INT AUTO_INCREMENT PRIMARY KEY,
         id INT NOT NULL,
         user_id INT NOT NULL,
     
         FOREIGN KEY(id) REFERENCES properties(id)
+    );"
     );
-    ");
 
     echo "<a href='./dashboard.php'>Back</a>";
     ?>
@@ -32,7 +32,7 @@
 
         <?php 
         // Fetches user id
-        $username = $_SESSION["user_id"];
+        $username = $_SESSION["email"];
         $userQuery = runQuery("SELECT username, id FROM accounts WHERE username = '$username';");
         $userData = $userQuery -> fetch_assoc();
         error_log(implode(", ", $userData));

@@ -10,16 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["email"];
     $password = $_POST["password"];
 
-    // $host = "localhost";
-    // $user = "dhernandezortiz1";
-    // $pass = "dhernandezortiz1";
-    // $dbname = "dhernandezortiz1";
-    $host = "localhost";
-    $user = "ewilliams153";
-    $pass = "ewilliams153";
-    $dbname = "ewilliams153";
 
-    $conn = new mysqli($host, $user, $pass, $dbname);
+
+   // $conn = new mysqli($host, $user, $pass, $dbname);
+   require_once(__DIR__.'/connection.php');
+    // Create Connection
+    $conn = getConnection();
 
     // Query to retrieve user data based on the provided email
     $query = "SELECT * FROM accounts WHERE username='$username'";
