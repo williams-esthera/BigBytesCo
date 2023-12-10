@@ -23,9 +23,14 @@
         FOREIGN KEY(id) REFERENCES properties(id)
     );"
     );
-
-    echo "<a href='./dashboard.php'>Back</a>";
     ?>
+
+
+<header>
+        <button><a href="dashboard.php">Back</button>
+        <button><a href ="home.html">Home</a></button>
+            
+</header>
 
     <div class="wishlist-container">
         <h1>Your wishlist</h1>
