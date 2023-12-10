@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
-    <link rel ="stylesheet" href = "wishlist.css"/>
+    <link rel = "stylesheet" href = "wishlist.css" />
 </head>
 
 <body>
@@ -31,14 +31,9 @@
         <h1>Your wishlist</h1>
 
         <?php 
-        // Fetches user id
-        $username = $_SESSION["email"];
-        $userQuery = runQuery("SELECT username, id FROM accounts WHERE username = '$username';");
-        $userData = $userQuery -> fetch_assoc();
-        error_log(implode(", ", $userData));
 
         // Uses user id to fetch their wishlist
-        $userId = $userData['id'];
+        $userId = $_SESSION['id'];
         $wishlistQuery = runQuery("SELECT * FROM wishlists WHERE user_id = '$userId';");
 
         $propertyIdToRemove = $_POST['propertyId'];
@@ -61,8 +56,9 @@
                 $propertyQuery = runQuery("SELECT * FROM properties where id = '$propertyId'");
                 $row = $propertyQuery -> fetch_assoc();
 
+                echo "<div class='property'>";
                 // Display it
-                echo '<a href="property_details.php?id=' . $row['id'] . '" class="property-card">';
+                echo '<a href="property_details.php?id=' . $row['id'] . '" class="property">';
                 echo '<img src="images/' . $row['imagePath'] . '" alt="' . $row['propertyName'] . '">';
                 echo '<h2>' . $row['propertyName'] . '</h2>';
                 echo '<p>Type: ' . $row['propertyType'] . '</p>';
@@ -71,13 +67,14 @@
                 echo '<p>Square Footage: ' . $row['squareFootage'] . ' sqft</p>';
                 echo '<p>Price: $' . number_format($row['price'], 2) . '</p>';               
                 // Close the link with the </a> tag
-                echo '</a>';
 
                 // Calls post request to self to remove from wishlist
                 echo "<form method='post' action='./wishlist.php'>";
                 echo "<input type='hidden' value='$propertyId' name='propertyId' />";
                 echo "<button type='submit'>Remove from wishlist</button>";
                 echo "</form>";
+
+                echo '</a>';
 
                 echo "</div>";
             }

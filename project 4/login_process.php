@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $hashed_password)) {
                 // Password is correct, set session and redirect to dashboard
                 $_SESSION["user_id"] = $username;
+                $_SESSION["id"] = $row['id'];
             
                 // Fetch user's first and last names
                 $fname = $row['firstName'];
